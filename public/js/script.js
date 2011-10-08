@@ -1,7 +1,6 @@
 (function($){
 
     var Card = window.Card = Backbone.Model.extend({
-
     });
 
     var CardFormView = window.CardFormView = Backbone.View.extend({
@@ -11,11 +10,12 @@
         events: {
             "change input": "update_data",
             "change textarea": "update_data",
-            "submit": "update_data"
+            "submit": "update_data",
+            "click": "flip"
         },
 
         initialize: function () {
-            _.bindAll(this, "render", "update_data");
+            _.bindAll(this, "render", "update_data", "flip");
             this.model.bind("change", this.render);
             this.model.view = this;
         },
@@ -33,6 +33,11 @@
                             text: this.$("#text").val(),
                             address: this.$("#address").val()
                            });
+        },
+
+        flip: function () {
+//            console.log(this.$(this.el).size());
+            this.$(this.el).toggleClass('flip');
         }
     });
 
