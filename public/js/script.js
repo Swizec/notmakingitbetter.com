@@ -9,11 +9,13 @@
         template: new EJS({url: '/client-views/form.ejs'}),
 
         events: {
-            "change #image": "new_url"
+            "change input": "update_data",
+            "change textarea": "update_data",
+            "submit": "update_data"
         },
 
         initialize: function () {
-            _.bindAll(this, "render", "new_url");
+            _.bindAll(this, "render", "update_data");
             this.model.bind("change", this.render);
             this.model.view = this;
         },
@@ -25,8 +27,12 @@
             return this.el;
         },
 
-        new_url: function () {
-            this.model.set({'image': this.$("#image").val()});
+        update_data: function () {
+            console.log("update!");
+            this.model.set({image: this.$("#image").val(),
+                            text: this.$("#text").val(),
+                            address: this.$("#address").val()
+                           });
         }
     });
 
