@@ -4,7 +4,6 @@
  */
 
 var express = require('express');
-var nowjs = require('now');
 
 var app = module.exports = express.createServer();
 
@@ -36,19 +35,6 @@ app.get('/', function(req, res){
     title: 'Express'
   });
 });
-
-var everyone = nowjs.initialize(app);
-var users = [];
-
-everyone.now.initiate = function (callback) {
-    var group = nowjs.getGroup("user-"+this.user.clientId);
-    group.addUser(this.user.clientId);
-
-    users[this.user.clientId] = group;
-    callback(this.user.clientId);
-};
-
-// TODO: when users vanish do some cleaning up so as to not hold their group indefinitely
 
 // Only listen on $ node app.js
 
