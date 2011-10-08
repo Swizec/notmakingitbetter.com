@@ -8,17 +8,25 @@
         el: 'form',
         template: new EJS({url: '/client-views/form.ejs'}),
 
+        events: {
+            "change #image": "new_url"
+        },
+
         initialize: function () {
-            _.bindAll(this, "render");
+            _.bindAll(this, "render", "new_url");
             this.model.bind("change", this.render);
             this.model.view = this;
         },
 
         render: function () {
-            var $el = $(this.el);
-            $el.html(this.template.render(this.model.toJSON()));
+            this.$(this.el).html(this.template.render(this.model.toJSON()));
+            this.delegateEvents();
 
-            return $el;
+            return this.el;
+        },
+
+        new_url: function () {
+            this.model.set({'image': this.$("#image").val()});
         }
     });
 
@@ -34,8 +42,7 @@
                 text: "This is a text",
                 address: "An address!"
             })});
-            console.log(card_form.render());
-            //$("#card-form").html(card_form.render());
+            card_form.render();
         }
     });
 
