@@ -29,7 +29,7 @@
             this.delegateEvents();
 
             if (this.model.id) {
-                $(".notify_url").val("http://notmakingitbetter.com/ipn/?id="+this.model.id);
+                $(".notify_url").val("http://notmakingitbetter.com/ipn/"+this.model.id);
                 $(".item_num").val(this.model.id);
                 $("#buy").fadeIn();
             }
