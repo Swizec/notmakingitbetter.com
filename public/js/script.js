@@ -17,11 +17,14 @@
             "click a.flip": "flip",
             "click .send": "send",
             "focus .image_form input[type=text]": "focus",
-            "blur .image_form input[type=text]": "blur"
+            "blur .image_form input[type=text]": "blur",
+            "keyup textarea": "limit",
+            "paste textarea": "limit",
+            "blur textarea": "limit"
         },
 
         initialize: function () {
-            _.bindAll(this, "render", "update_data", "flip", "send", "focus", "blur");
+            _.bindAll(this, "render", "update_data", "flip", "send", "focus", "blur", "limit");
             this.model.bind("change", this.render);
             this.model.view = this;
         },
@@ -63,6 +66,19 @@
 
         blur: function () {
             this.$(".image_form").removeClass('focus');
+        },
+
+        limit: function (event) {
+            var $area = $(event.currentTarget);
+            var lines = $area.val().split("\n");
+
+            if ($area.attr("id") == "text" && lines.length > 14) {
+                lines.pop();
+                $area.val(lines.join("\n"));
+            }else if ($area.attr("id") == "address" && lines.length > 5) {
+                lines.pop();
+                $area.val(lines.join("\n"));
+            }
         }
     });
 

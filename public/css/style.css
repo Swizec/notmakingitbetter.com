@@ -310,11 +310,11 @@ body {
 
 #card-form .back textarea {
     width: 70mm;
-    height: 80mm;
+    height: 85mm;
     min-width: 70mm;
-    min-height: 80mm;
+    min-height: 85mm;
     max-width: 70mm;
-    max-height: 80mm;
+    max-height: 85mm;
 
     -webkit-box-pack: bottom;
     -webkit-box-align: stretch;
@@ -395,7 +395,54 @@ body {
   right: 10px;
 }
 
+#card-form .text_form {
+  background: none;
 
+}
+
+#card-form .text_form textarea {
+  border: 0;
+  font-family: "Podkova";
+  -webkit-box-orient: horizontal;
+  -webkit-box-sizing: border-box;
+  font-size: 0.8em;
+  outline: 0;
+  overflow: hidden;
+}
+
+#card-form .text_form #address {
+  height: 55mm;
+  min-height: 55mm;
+  max-height: 55mm;
+  position: relative;
+  top: 23mm;
+  text-align: right;
+  -webkit-box-sizing: border-box;
+  padding-right: 1em;
+  line-height: 1.75em;
+}
+
+#card-form .text_form #text {
+  margin-top: -2mm;
+}
+
+#card-form .back .send {
+  position: absolute;
+  top: 26mm;
+  right: 12mm;
+}
+
+#magic-button {
+  position: relative;
+  top: -95mm;
+  left: 56mm;
+  opacity: 0;
+  -webkit-transition: opacity 400ms ease-in-out;
+}
+
+#magic-button.visible {
+  opacity: 1;
+}
 
 /* =============================================================================
    Non-semantic helper classes
