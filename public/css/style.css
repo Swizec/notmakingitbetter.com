@@ -444,6 +444,33 @@ body {
   opacity: 1;
 }
 
+header {
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+header h1 {
+  font-size: 3em;
+  padding-top: 1em;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+header h1 span {
+  font-size: 0.8em;
+  padding-left: 1em;
+}
+
+header p {
+  font-size: 1.5em;
+  line-height: 0.7em;
+}
+
+header p span {
+  color: #CC1212;
+  font-weight: bold;
+}
+
 /* =============================================================================
    Non-semantic helper classes
    Please define your styles before this section.
