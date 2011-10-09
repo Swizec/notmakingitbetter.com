@@ -4,13 +4,10 @@
  */
 
 var express = require('express');
-var mongodb = require('mongodb');
-var _ = require('underscore');
 
 var app = module.exports = express.createServer();
+var postcards = require('./lib/postcards');
 
-
-var mongo = new mongodb.Db('postcards', new mongodb.Server('127.0.0.1', 27017, {}));
 
 // Configuration
 
@@ -41,30 +38,14 @@ app.get('/', function(req, res){
 });
 
 app.post('/card', function (req, res) {
-    mongo.open(function (err) {
-        mongo.collection('postcards', function (err, postcards) {
-            var card = _.extend({last_change: new Date()},
-                                 req.body);
-            postcards.insert(card, function (err, docs) {
-                mongo.close();
-                res.send({id: docs[0]._id});
-            });
-        });
+    postcards.create(req.body, function (err, id) {
+        res.send({id: id});
     });
 });
 
 app.put('/card/:id', function (req, res) {
-    mongo.open(function (err) {
-        mongo.collection('postcards', function (err, postcards) {
-            var card = _.extend({last_change: new Date()},
-                                req.body);
-            postcards.update({_id: new mongo.bson_serializer.ObjectID(req.params.id)},
-                             card,
-                             {safe: true},
-                             function (err) {
-                                 res.send({});
-                             });
-        });
+    postcards.update(req.params.id, req.body, function (err) {
+        res.send({});
     });
 });
 
