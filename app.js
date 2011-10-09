@@ -5,6 +5,7 @@
 
 var express = require('express');
 var mongodb = require('mongodb');
+var _ = require('underscore');
 
 var app = module.exports = express.createServer();
 
@@ -42,7 +43,9 @@ app.get('/', function(req, res){
 app.post('/card', function (req, res) {
     mongo.open(function (err) {
         mongo.collection('postcards', function (err, postcards) {
-            postcards.insert(req.body, function (err, docs) {
+            var card = _.extend({last_change: new Date()},
+                                 req.body);
+            postcards.insert(card, function (err, docs) {
                 mongo.close();
                 res.send({id: docs[0]._id});
             });
@@ -53,8 +56,10 @@ app.post('/card', function (req, res) {
 app.put('/card/:id', function (req, res) {
     mongo.open(function (err) {
         mongo.collection('postcards', function (err, postcards) {
+            var card = _.extend({last_change: new Date()},
+                                req.body);
             postcards.update({_id: new mongo.bson_serializer.ObjectID(req.params.id)},
-                             req.body,
+                             card,
                              {safe: true},
                              function (err) {
                                  res.send({});
