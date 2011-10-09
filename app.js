@@ -4,8 +4,12 @@
  */
 
 var express = require('express');
+var mongodb = require('mongodb');
 
 var app = module.exports = express.createServer();
+
+
+var mongo = new mongodb.Db('postcards', new mongodb.Server('127.0.0.1', 27017, {}));
 
 // Configuration
 
@@ -33,6 +37,30 @@ app.configure('production', function(){
 app.get('/', function(req, res){
   res.render('index', {
   });
+});
+
+app.post('/card', function (req, res) {
+    mongo.open(function (err) {
+        mongo.collection('postcards', function (err, postcards) {
+            postcards.insert(req.body, function (err, docs) {
+                mongo.close();
+                res.send({id: docs[0]._id});
+            });
+        });
+    });
+});
+
+app.put('/card/:id', function (req, res) {
+    mongo.open(function (err) {
+        mongo.collection('postcards', function (err, postcards) {
+            postcards.update({_id: new mongo.bson_serializer.ObjectID(req.params.id)},
+                             req.body,
+                             {safe: true},
+                             function (err) {
+                                 res.send({});
+                             });
+        });
+    });
 });
 
 // Only listen on $ node app.js

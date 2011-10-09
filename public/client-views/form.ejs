@@ -2,8 +2,11 @@
 <div class="front">
      <%= img_tag(image) %>
      <%= input_field_tag('image', image) %>
+     <a href="#" class="turn">Turn</a>
 </div>
 <div class="back">
      <%= text_area_tag('text', text) %>
      <%= text_area_tag('address', address) %>
+     <a href="#" class="turn">Turn</a>
+     <input type="button" value="Send" class="send" />
 </div>

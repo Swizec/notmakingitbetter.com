@@ -1,6 +1,9 @@
 (function($){
 
     var Card = window.Card = Backbone.Model.extend({
+        url: function () {
+            return (!this.id) ? '/card' : '/card/'+this.id;
+        }
     });
 
     var CardFormView = window.CardFormView = Backbone.View.extend({
@@ -11,11 +14,12 @@
             "change input": "update_data",
             "change textarea": "update_data",
             "submit": "update_data",
-            "click": "flip"
+            "click a": "flip",
+            "click .send": "send"
         },
 
         initialize: function () {
-            _.bindAll(this, "render", "update_data", "flip");
+            _.bindAll(this, "render", "update_data", "flip", "send");
             this.model.bind("change", this.render);
             this.model.view = this;
         },
@@ -28,7 +32,6 @@
         },
 
         update_data: function () {
-            console.log("update!");
             this.model.set({image: this.$("#image").val(),
                             text: this.$("#text").val(),
                             address: this.$("#address").val()
@@ -36,8 +39,11 @@
         },
 
         flip: function () {
-//            console.log(this.$(this.el).size());
             this.$(this.el).toggleClass('flip');
+        },
+
+        send: function () {
+            this.model.save();
         }
     });
 
