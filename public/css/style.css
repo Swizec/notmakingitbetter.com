@@ -201,6 +201,12 @@ table { border-collapse: collapse; border-spacing: 0; }
    Author:
    ========================================================================== */
 
+
+body {
+    background: url('/images/texture.jpg');
+    font-family: 'Special Elite', cursive;
+}
+
 .panel {
     float: left;
     width: 200px;
@@ -260,7 +266,6 @@ table { border-collapse: collapse; border-spacing: 0; }
     height: inherit;
     border: 1px solid #ccc;
     background: #80868d;
-    text-shadow: 1px  1px 1px rgba(0,0,0,0.6);
 
     -webkit-transform: rotateY(-180deg);
     -webkit-transform-style: preserve-3d;
@@ -287,6 +292,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 #card-form {
     width: 150mm;
     height: 100mm;
+    font-family: 'Podkova', serif;
 }
 
 #card-form div {
@@ -298,17 +304,95 @@ table { border-collapse: collapse; border-spacing: 0; }
 }
 
 #card-form .back {
-  background: url('/images/paper.jpg');
+  background: url('/images/back.jpg') center center no-repeat;
+  -webkit-box-orient: vertical;
 }
 
 #card-form .back textarea {
     width: 70mm;
-    height: 90mm;
+    height: 80mm;
+    min-width: 70mm;
+    min-height: 80mm;
+    max-width: 70mm;
+    max-height: 80mm;
 
-    -webkit-box-pack: left;
+    -webkit-box-pack: bottom;
     -webkit-box-align: stretch;
     display: -webkit-box;
     background: none;
+}
+
+#container {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+
+#main {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+
+#card-form {
+  font-size: 2em;
+}
+
+#card-form img {
+  max-height: 90mm;
+  max-width: 140mm;
+}
+
+#card-form .image_form {
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   width: 100%;
+   height: 100%;
+   background: none;
+   -webkit-box-orient: vertical;
+}
+
+#card-form .image_form input {
+   display: -webkit-box;
+   opacity: 0;
+   padding: 0.2em;
+   border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  outline: 0;
+  font-family: "Podkova";
+}
+
+#card-form .image_form input[type=text] {
+  width: 100mm;
+}
+
+#card-form .image_form input[type=text]:focus {
+   -webkit-box-shadow: 0 0 15px #2BD6D9;
+}
+
+#card-form .image_form input[type=button] {
+  margin-top: 0.5em;
+  font-size: 0.7em;
+  padding: 0.2em 0.5em;
+}
+
+#card-form .image_form:hover input {
+   opacity: 0.8;
+}
+
+#card-form .image_form.focus input {
+   opacity: 1;
+}
+
+#card-form .image_form a {
+  font-size: 0.8em;
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
 }
 
 

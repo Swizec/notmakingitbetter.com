@@ -14,12 +14,14 @@
             "change input": "update_data",
             "change textarea": "update_data",
             "submit": "update_data",
-            "click a": "flip",
-            "click .send": "send"
+            "click a.flip": "flip",
+            "click .send": "send",
+            "focus .image_form input[type=text]": "focus",
+            "blur .image_form input[type=text]": "blur"
         },
 
         initialize: function () {
-            _.bindAll(this, "render", "update_data", "flip", "send");
+            _.bindAll(this, "render", "update_data", "flip", "send", "focus", "blur");
             this.model.bind("change", this.render);
             this.model.view = this;
         },
@@ -33,6 +35,7 @@
                 $(".item_num").val(this.model.id);
                 $(".return").val('http://notmakingitbetter.com/sent/'+this.model.id);
                 $("#buy").fadeIn();
+                $("#magic-button").addClass("visible");
             }
 
             return this.el;
@@ -51,7 +54,15 @@
 
         send: function () {
             this.model.save();
-            this.$(".send").val("Change");
+            this.$(".send").val("Save");
+        },
+
+        focus: function () {
+            this.$(".image_form").addClass('focus');
+        },
+
+        blur: function () {
+            this.$(".image_form").removeClass('focus');
         }
     });
 
@@ -64,8 +75,8 @@
         initialize: function () {
             var card_form = new CardFormView({model: new Card({
                 image: 'http://25.media.tumblr.com/tumblr_lsrkyvTvqK1r4u63lo1_500.jpg',
-                text: "This is a text",
-                address: "An address!"
+                text: "",
+                address: ""
             })});
             card_form.render();
         }

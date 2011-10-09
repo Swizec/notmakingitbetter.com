@@ -1,13 +1,16 @@
 
 <div class="front">
      <%= img_tag(image) %>
-     <%= input_field_tag('image', image) %>
-     <a href="#" class="turn">Turn</a>
+     <div class="image_form">
+          <%= input_field_tag('image', image) %>
+          <input type="button" value="Change Image" />
+          <a href="#" class="flip">Write!</a>
+     </div>
 </div>
 <div class="back">
-     <%= text_area_tag('text', text) %>
-     <%= text_area_tag('address', address) %>
-     <a href="#" class="turn">Turn</a>
-     <input type="button" value="<%= (typeof(id) != 'undefined') ? 'Change' : 'Send' %>" class="send" />
-
+     <div class="text_form">
+          <%= text_area_tag('text', text) %>
+          <%= text_area_tag('address', address) %>
+     </div>
+     <a href="#" class="send"><%= (typeof(id) != 'undefined') ? 'Save' : 'Send' %></a>
 </div>
