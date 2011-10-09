@@ -9,6 +9,7 @@ var app = module.exports = express.createServer();
 var ipn = require('paypal-ipn');
 
 var postcards = require('./lib/postcards');
+var payments = require('./lib/payments');
 
 // Configuration
 
@@ -53,9 +54,14 @@ app.put('/card/:id', function (req, res) {
 app.post('/ipn/:id', function (req, res) {
     ipn.verify(req.body, function (err, msg) {
         if (!err) {
-            console.log(req.body);
+            payments.process(req.params.id,
+                             req.body,
+                             function (err) {
+                                 res.send({});
+                             });
+        }else{
+            res.send({});
         }
-        res.send({});
     });
 });
 
