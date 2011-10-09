@@ -31,6 +31,7 @@
             if (this.model.id) {
                 $(".notify_url").val("http://notmakingitbetter.com/ipn/"+this.model.id);
                 $(".item_num").val(this.model.id);
+                $(".return").val('http://notmakingitbetter.com/sent/'+this.model.id);
                 $("#buy").fadeIn();
             }
 
