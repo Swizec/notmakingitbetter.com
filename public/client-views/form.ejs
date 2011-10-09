@@ -8,5 +8,5 @@
      <%= text_area_tag('text', text) %>
      <%= text_area_tag('address', address) %>
      <a href="#" class="turn">Turn</a>
-     <input type="button" value="Send" class="send" />
+     <input type="button" value="<%= (typeof(id) != 'undefined') ? 'Change' : 'Send' %>" class="send" />
 </div>

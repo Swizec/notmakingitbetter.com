@@ -44,6 +44,7 @@
 
         send: function () {
             this.model.save();
+            this.$(".send").val("Change");
         }
     });
 
