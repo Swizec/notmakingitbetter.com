@@ -434,7 +434,7 @@ body {
 
 #magic-button {
   position: relative;
-  top: -95mm;
+  top: -90mm;
   left: 56mm;
   opacity: 0;
   -webkit-transition: opacity 400ms ease-in-out;

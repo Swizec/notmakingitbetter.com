@@ -39,6 +39,7 @@
                 $(".return").val('http://notmakingitbetter.com/sent/'+this.model.id);
                 $("#buy").fadeIn();
                 $("#magic-button").addClass("visible");
+                $(".send").addClass("hidden");
             }
 
             return this.el;
@@ -57,7 +58,7 @@
 
         send: function () {
             this.model.save();
-            this.$(".send").val("Save");
+            this.$(".send").addClass("hidden");
         },
 
         focus: function () {
@@ -90,7 +91,7 @@
 
         initialize: function () {
             var card_form = new CardFormView({model: new Card({
-                image: 'http://25.media.tumblr.com/tumblr_lsrkyvTvqK1r4u63lo1_500.jpg',
+                image: 'http://25.media.tumblr.com/tumblr_lsr83p23eg1qewacoo1_500.jpg',
                 text: "",
                 address: ""
             })});
