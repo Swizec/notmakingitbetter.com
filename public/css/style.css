@@ -284,6 +284,34 @@ table { border-collapse: collapse; border-spacing: 0; }
 }
 
 
+#card-form {
+    width: 150mm;
+    height: 100mm;
+}
+
+#card-form div {
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    background: white;
+}
+
+#card-form .back {
+  background: url('/images/paper.jpg');
+}
+
+#card-form .back textarea {
+    width: 70mm;
+    height: 90mm;
+
+    -webkit-box-pack: left;
+    -webkit-box-align: stretch;
+    display: -webkit-box;
+    background: none;
+}
+
+
 
 /* =============================================================================
    Non-semantic helper classes
