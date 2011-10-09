@@ -28,6 +28,12 @@
             this.$(this.el).html(this.template.render(this.model.toJSON()));
             this.delegateEvents();
 
+            if (this.model.id) {
+                $(".notify_url").val("http://notmakingitbetter.com/ipn/?id="+this.model.id);
+                $(".item_num").val(this.model.id);
+                $("#buy").fadeIn();
+            }
+
             return this.el;
         },
 
