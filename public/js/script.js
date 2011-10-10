@@ -141,7 +141,7 @@
             var card;
             if (typeof(sent_card) != "object") {
                 card = new Card({
-                    image: 'http://25.media.tumblr.com/tumblr_lsr83p23eg1qewacoo1_500.jpg',
+                    image: Recents.at(Math.round(Math.random()*100)%(Recents.length-1)).get('image'),
                     text: "",
                     address: ""
                 });
