@@ -83,6 +83,31 @@
         }
     });
 
+    var PostcardList = window.PostcardList = Backbone.Collection.extend({
+        model: Card,
+        url: '/recents'
+    });
+
+    var RecentView = window.RecentView = Backbone.View.extend({
+        tagName: "li",
+        template: new EJS({url: '/client-views/recent.ejs'}),
+
+        initialize: function () {
+            _.bindAll(this, "render");
+
+            this.model.bind("change", this.render);
+            this.model.view = this;
+        },
+
+        render: function () {
+            this.$(this.el).html(this.template.render(this.model.toJSON()));
+
+            return this.el;
+        }
+    });
+
+    var Recents = window.Recents = new PostcardList;
+
     var AppView = window.AppView = Backbone.View.extend({
         el: $("#main"),
 
@@ -90,12 +115,25 @@
         },
 
         initialize: function () {
+            _.bindAll(this, "reset_recent");
+
+            Recents.bind("reset", this.reset_recent);
+
+            Recents.reset(window.recent_cards);
+
             var card_form = new CardFormView({model: new Card({
                 image: 'http://25.media.tumblr.com/tumblr_lsr83p23eg1qewacoo1_500.jpg',
                 text: "",
                 address: ""
             })});
             card_form.render();
+        },
+
+        reset_recent: function (cards) {
+            _.map(cards.models, function (card) {
+                var recent = new RecentView({model: card});
+                this.$("#recent_cards").append(recent.render());
+            });
         }
     });
 

@@ -35,8 +35,11 @@ app.configure('production', function(){
 // Routes
 
 app.get('/', function(req, res){
-  res.render('index', {
-  });
+    postcards.recent(function (err, cards) {
+        res.render('index', {
+            recent_cards: JSON.stringify(cards)
+        });
+    });
 });
 
 app.post('/card', function (req, res) {
@@ -62,6 +65,13 @@ app.post('/ipn/:id', function (req, res) {
         }else{
             res.send({});
         }
+    });
+});
+
+app.get('/recents',function (req, res) {
+    postcards.recent(function (err, cards) {
+//        console.log(cards);
+        res.send(cards);
     });
 });
 
