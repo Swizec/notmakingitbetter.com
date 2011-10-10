@@ -3,6 +3,15 @@
     var Card = window.Card = Backbone.Model.extend({
         url: function () {
             return (!this.id) ? '/card' : '/card/'+this.id;
+        },
+
+        initialize: function() {
+            var _this = this;
+            this.attributes.changed = false;
+
+            this.bind("change", function () {
+                _this.attributes.changed = true;
+            });
         }
     });
 
