@@ -204,7 +204,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 body {
     background: url('/images/padded.png');
-    font-family: 'Special Elite', cursive;
+    font-family: 'Amaranth', sans-serif;
     color: white;
 }
 
@@ -433,6 +433,13 @@ body {
   right: 12mm;
 }
 
+#card-form .back .flip {
+  font-size: 0.6em;
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+}
+
 #magic-button {
   position: relative;
   top: -90mm;
@@ -451,10 +458,11 @@ header {
 }
 
 header h1 {
-  font-size: 3em;
+  font-size: 3.5em;
   padding-top: 1em;
   text-align: center;
   margin-bottom: 0;
+  font-family: 'Lobster Two', cursive;
 }
 
 header h1 span {
