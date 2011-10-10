@@ -483,6 +483,7 @@ header p span {
 #recent_cards {
   list-style: none;
   text-align: center;
+  margin-top: -0.5em;
 }
 
 #recent_cards li {
@@ -506,7 +507,20 @@ header p span {
 
 h2 {
   font-size: 1.8em;
-  margin-bottom: -0.5em;
+}
+
+h2.sent {
+    margin-top: -1.5em;
+}
+
+#share {
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    margin-left: 40px;
+}
+
+#share div {
+    padding: 5px;
 }
 
 /* =============================================================================

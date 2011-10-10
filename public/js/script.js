@@ -138,11 +138,21 @@
 
             Recents.reset(window.recent_cards);
 
-            var card_form = new CardFormView({model: new Card({
-                image: 'http://25.media.tumblr.com/tumblr_lsr83p23eg1qewacoo1_500.jpg',
-                text: "",
-                address: ""
-            })});
+            var card;
+            if (typeof(sent_card) != "object") {
+                card = new Card({
+                    image: 'http://25.media.tumblr.com/tumblr_lsr83p23eg1qewacoo1_500.jpg',
+                    text: "",
+                    address: ""
+                });
+            }else{
+                card = new Card({
+                    image: sent_card.image,
+                    text: sent_card.text,
+                    address: ""
+                });
+            }
+            var card_form = new CardFormView({model: card});
             card_form.render();
         },
 

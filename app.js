@@ -37,7 +37,9 @@ app.configure('production', function(){
 app.get('/', function(req, res){
     postcards.recent(function (err, cards) {
         res.render('index', {
-            recent_cards: JSON.stringify(cards)
+            recent_cards: JSON.stringify(cards),
+            sent_card: JSON.stringify(''),
+            head: 'Postcards are cool! <span>Send one ;)</span>'
         });
     });
 });
@@ -70,8 +72,17 @@ app.post('/ipn/:id', function (req, res) {
 
 app.get('/recents',function (req, res) {
     postcards.recent(function (err, cards) {
-//        console.log(cards);
         res.send(cards);
+    });
+});
+
+app.get('/sent/:id', function (req, res) {
+    postcards.get(req.params.id, function (err, card) {
+        res.render('sent', {
+            recent_cards: JSON.stringify([]),
+            sent_card: JSON.stringify(card),
+            head: 'I sent a postcard! <span>Send another ;)</span>'
+        });
     });
 });
 
