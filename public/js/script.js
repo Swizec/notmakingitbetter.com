@@ -63,11 +63,16 @@
 
         flip: function () {
             this.$(this.el).toggleClass('flip');
+            if (!this.$(this.el).hasClass('flip')) {
+                $("#magic-button").removeClass('visible');
+                $(".send").removeClass("hidden");
+            }
         },
 
         send: function () {
             this.model.save();
             this.$(".send").addClass("hidden");
+            this.render();
         },
 
         focus: function () {
