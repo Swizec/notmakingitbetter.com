@@ -55,7 +55,9 @@
         },
 
         update_data: function () {
-            this.model.set({image: this.$("#image").val(),
+            var image = this.$("#image").val();
+            image = (image != '') ? image : this.model.get('image');
+            this.model.set({image: image,
                             text: this.$("#text").val(),
                             address: this.$("#address").val()
                            });
