@@ -101,6 +101,7 @@
 
         render: function () {
             this.$(this.el).html(this.template.render(this.model.toJSON()));
+            this.$(this.el).addClass("panel");
 
             return this.el;
         }

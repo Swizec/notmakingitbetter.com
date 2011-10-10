@@ -471,6 +471,34 @@ header p span {
   font-weight: bold;
 }
 
+#recent_cards {
+  list-style: none;
+}
+
+#recent_cards li {
+  background: white;
+  height: 200px;
+  width: 300px;
+}
+
+#recent_cards div {
+  background: white;
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+}
+
+#recent_cards img {
+  max-width: 93%;
+  max-height: 90%;
+}
+
+h2 {
+  font-size: 1.8em;
+  margin-bottom: -0.5em;
+}
+
 /* =============================================================================
    Non-semantic helper classes
    Please define your styles before this section.
