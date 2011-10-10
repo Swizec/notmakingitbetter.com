@@ -473,6 +473,7 @@ header p span {
 
 #recent_cards {
   list-style: none;
+  text-align: center;
 }
 
 #recent_cards li {
