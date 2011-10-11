@@ -57,10 +57,14 @@
         update_data: function () {
             var image = this.$("#image").val();
             image = (image != '') ? image : this.model.get('image');
+
+            var silent = (image == this.model.get('image'));
+
             this.model.set({image: image,
                             text: this.$("#text").val(),
                             address: this.$("#address").val()
-                           });
+                           },
+                           {silent: silent});
         },
 
         flip: function () {
