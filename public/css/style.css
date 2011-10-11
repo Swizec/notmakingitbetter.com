@@ -254,6 +254,17 @@ h2.sent {
     margin-top: -1.5em;
 }
 
+footer {
+    padding: 1em;
+    margin-top: 2em;
+    display: -webkit-box;
+    -webkit-box-align: center;
+}
+
+footer div {
+    margin-left: 1em;
+}
+
 .panel {
     float: left;
     width: 200px;
