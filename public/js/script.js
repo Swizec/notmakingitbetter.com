@@ -185,7 +185,6 @@
 
     $("#magic-button").submit(function () {
         mpq.track("Buy", {}, function () {
-            console.log("bu");
             $("#magic-button").unbind('submit').submit();
         });
         return false;
