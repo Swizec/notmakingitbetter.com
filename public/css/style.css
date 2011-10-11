@@ -259,6 +259,12 @@ footer {
     margin-top: 2em;
     display: -webkit-box;
     -webkit-box-align: center;
+    display: -moz-box;
+    -moz-box-align: center;
+    display: -o-box;
+    -o-box-align: center;
+    display: box;
+    box-align: center;
 }
 
 footer div {
