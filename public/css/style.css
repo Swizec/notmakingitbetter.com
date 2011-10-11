@@ -209,19 +209,19 @@ body {
 }
 
 header {
-  padding-bottom: 1em;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-align: center;
-  display: -moz-box;
-  -moz-box-orient: vertical;
-  -moz-box-align: center;
-  display: -o-box;
-  -o-box-orient: vertical;
-  -o-box-align: center;
-  display: box;
-  box-orient: vertical;
-  box-align: center;
+    padding-bottom: 1em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: center;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: center;
+    display: -o-box;
+    -o-box-orient: vertical;
+    -o-box-align: center;
+    display: box;
+    box-orient: vertical;
+    box-align: center;
 }
 
 header h1 {
@@ -361,6 +361,7 @@ footer div {
     -o-box-align: center;
     display: box;
     box-align: center;
+    width: 100%;
 }
 
 #main {
@@ -585,6 +586,7 @@ footer div {
 }
 
 #recent {
+    display: none !important;
 }
 
 #recent ol {
