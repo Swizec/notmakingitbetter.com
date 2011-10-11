@@ -58,6 +58,12 @@
             var image = this.$("#image").val();
             image = (image != '') ? image : this.model.get('image');
 
+            if (image != this.model.get('image')) {
+                mpq.track("Changed image");
+            }else{
+                mpq.track("Updated card");
+            }
+
             var silent = (image == this.model.get('image'));
 
             this.model.set({image: image,
@@ -73,12 +79,14 @@
                 $("#magic-button").removeClass('visible');
                 $(".send").removeClass("hidden");
             }
+            mpq.track("Flipped");
         },
 
         send: function () {
             this.model.save();
             this.$(".send").addClass("hidden");
             this.render();
+            mpq.track("Send");
         },
 
         focus: function () {
@@ -174,5 +182,13 @@
     });
 
     var App = window.App = new AppView;
+
+    $("#magic-button").submit(function () {
+        mpq.track("Buy", {}, function () {
+            console.log("bu");
+            $("#magic-button").unbind('submit').submit();
+        });
+        return false;
+    });
 
 })(jQuery);
