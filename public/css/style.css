@@ -213,7 +213,15 @@ header {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-box-align: center;
-
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: center;
+  display: -o-box;
+  -o-box-orient: vertical;
+  -o-box-align: center;
+  display: box;
+  box-orient: vertical;
+  box-align: center;
 }
 
 header h1 {
@@ -330,18 +338,42 @@ h2.sent {
 #container {
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    display: -o-box;
+    -o-box-align: center;
+    display: box;
+    box-align: center;
 }
 
 #main {
     dislay: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-box-align: center;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: center;
+    display: -o-box;
+    -o-box-orient: vertical;
+    -o-box-align: center;
+    display: box;
+    box-orient: vertical;
+    box-align: center;
 }
 
 #main .section {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-box-align: center;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: center;
+    display: -o-box;
+    -o-box-orient: vertical;
+    -o-box-align: center;
+    display: box;
+    box-orient: vertical;
+    box-align: center;
 }
 
 #card-form {
@@ -360,12 +392,24 @@ h2.sent {
     -webkit-box-orient: horizontal;
     -webkit-box-pack: center;
     -webkit-box-align: center;
+    display: -moz-box;
+    -moz-box-orient: center;
+    -moz-box-align: center;
+    display: -o-box;
+    -o-box-orient: center;
+    -o-box-align: center;
+    display: box;
+    box-orient: center;
+    box-align: center;
     background: white;
 }
 
 #card-form .back {
   background: url('/images/back.jpg') center center no-repeat;
   -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  box-orient: vertical;
 }
 
 #card-form .back .send {
@@ -399,15 +443,22 @@ h2.sent {
    height: 100%;
    background: none;
    -webkit-box-orient: vertical;
+   -moz-box-orient: vertical;
+   -o-box-orient: vertical;
+   box-orient: vertical;
 }
 
 #card-form .image_form input {
    display: -webkit-box;
+   display: -moz-box;
+   display: -o-box;
+   display: box;
    opacity: 0.1;
    padding: 0.2em;
    border-radius: 15px;
    -moz-border-radius: 15px;
    -webkit-border-radius: 15px;
+   -o-border-radius: 15px;
    outline: 0;
 }
 
@@ -425,6 +476,9 @@ h2.sent {
 
 #card-form .image_form input[type=text]:focus {
    -webkit-box-shadow: 0 0 15px #2BD6D9;
+   -moz-box-shadow: 0 0 15px #2BD6D9;
+   -o-box-shadow: 0 0 15px #2BD6D9;
+   box-shadow: 0 0 15px #2BD6D9;
 }
 
 #card-form .image_form input[type=button] {
@@ -461,6 +515,21 @@ h2.sent {
   -webkit-box-pack: bottom;
   -webkit-box-align: stretch;
   display: -webkit-box;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  -moz-box-pack: bottom;
+  -moz-box-sizing: border-box;
+  display: -o-box;
+  -o-box-orient: horizontal
+  -o-box-align: stretch;
+  -o-box-pack: bottom;
+  -o-box-sizing: border-box;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  box-pack: bottom;
+  box-sizing: border-box;
   background: none;
 }
 
@@ -472,6 +541,9 @@ h2.sent {
   top: 23mm;
   text-align: right;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
   padding-right: 1em;
   line-height: 1.75em;
 }
@@ -486,6 +558,9 @@ h2.sent {
   left: 56mm;
   opacity: 0;
   -webkit-transition: opacity 400ms ease-in-out;
+  -moz-transition: opacity 400ms ease-in-out;
+  -o-transition: opacity 400ms ease-in-out;
+  transition: opacity 400ms ease-in-out;
 }
 
 #magic-button.visible {
@@ -498,6 +573,9 @@ h2.sent {
 #recent ol {
     list-style: none;
     display: -webkit-box;
+    display: -moz-box;
+    display: -o-box;
+    display: box;
 }
 
 #recent ol li {
@@ -509,6 +587,15 @@ h2.sent {
   display: -webkit-box;
   -webkit-box-pack: center;
   -webkit-box-align: center;
+  display: -moz-box;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+  display: -o-box;
+  -o-box-pack: center;
+  -o-box-align: center;
+  display: box;
+  box-pack: center;
+  box-align: center;
 
   -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
   -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
@@ -524,6 +611,12 @@ h2.sent {
 #share {
     display: -webkit-box;
     -webkit-box-orient: horizontal;
+    display: -moz-box;
+    -moz-box-orient: horizontal;
+    display: -o-box;
+    -o-box-orient: horizontal;
+    display: box;
+    box-orient: horizontal;
     margin-left: 40px;
 }
 
