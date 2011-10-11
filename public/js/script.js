@@ -117,7 +117,7 @@
 
         render: function () {
             this.$(this.el).html(this.template.render(this.model.toJSON()));
-            this.$(this.el).addClass("panel");
+            //this.$(this.el).addClass("panel");
 
             return this.el;
         }
@@ -157,9 +157,14 @@
         },
 
         reset_recent: function (cards) {
+            var $ol = this.$("#recent ol:last");
             _.map(cards.models, function (card) {
                 var recent = new RecentView({model: card});
-                this.$("#recent_cards").append(recent.render());
+                $ol.append(recent.render());
+                if ($(window).width()-$ol.width() < $ol.children("li:first").width()) {
+                    this.$("#recent").append("<ol></ol>");
+                    $ol = this.$("#recent ol:last");
+                }
             });
         }
     });

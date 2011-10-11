@@ -209,14 +209,16 @@ body {
 }
 
 header {
-  text-align: center;
   padding-bottom: 1em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: center;
+
 }
 
 header h1 {
   font-size: 3.5em;
   padding-top: 1em;
-  text-align: center;
   margin-bottom: 0;
   font-family: 'Lobster Two', cursive;
 }
@@ -328,14 +330,17 @@ h2.sent {
 #container {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-box-pack: center;
-    -webkit-box-align: center;
 }
 
 #main {
+    dislay: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: center;
+}
+
+#main .section {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-box-pack: center;
     -webkit-box-align: center;
 }
 
@@ -343,6 +348,7 @@ h2.sent {
     width: 150mm;
     height: 100mm;
     font-family: 'Podkova', serif;
+    -webkit-box-flex: 0;
 }
 
 #card-form input, #card-form textarea {
@@ -400,9 +406,9 @@ h2.sent {
    opacity: 0.1;
    padding: 0.2em;
    border-radius: 15px;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-  outline: 0;
+   -moz-border-radius: 15px;
+   -webkit-border-radius: 15px;
+   outline: 0;
 }
 
 #card-form .image_form:hover input {
@@ -486,29 +492,33 @@ h2.sent {
   opacity: 1;
 }
 
-#recent_cards {
-  list-style: none;
-  text-align: center;
-  margin-top: -0.5em;
+#recent {
 }
 
-#recent_cards li {
-  background: white;
+#recent ol {
+    list-style: none;
+    display: -webkit-box;
+}
+
+#recent ol li {
   height: 200px;
   width: 300px;
-}
-
-#recent_cards div {
   background: white;
+  margin: 1em;
+
   display: -webkit-box;
-  -webkit-box-orient: horizontal;
   -webkit-box-pack: center;
   -webkit-box-align: center;
+
+  -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+  -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+  box-shadow: 0 1px 5px rgba(0,0,0,0.9);
 }
 
-#recent_cards img {
+#recent ol li img {
   max-width: 93%;
   max-height: 90%;
+  display: block;
 }
 
 #share {
