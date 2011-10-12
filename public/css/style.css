@@ -395,7 +395,6 @@ footer div {
     height: 100mm;
     font-family: 'Podkova', serif;
     font-size: 2em;
-    border: 1px solid red;
 }
 
 #card-form .front {
@@ -453,8 +452,6 @@ footer div {
 }
 
 #card-form .image_form {
-    display: none !important;
-    border: 1px solid red;
    position: absolute;
    top: 0px;
    left: 0px;
@@ -472,9 +469,8 @@ footer div {
 }
 
 #card-form .image_form input {
-    -moz-box-flex: 1;
-
-   border: 1px solid green;
+    display: block;
+    margin: 0 auto;
 
    opacity: 0.1;
    padding: 0.2em;
