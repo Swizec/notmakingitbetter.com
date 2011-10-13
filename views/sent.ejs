@@ -1,0 +1,50 @@
+
+<div class="section">
+     <form id="card-form" class="panel">
+     </form>
+
+     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="magic-button">
+           <input type="hidden" name="cmd" value="_s-xclick">
+           <input type="hidden" name="hosted_button_id" value="HLGGNH4WDJTC8">
+           <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+           <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+           <input type="hidden" class="notify_url" name="notify_url" value="">
+           <input type="hidden" class="return" name="return" value="">
+           <input type="hidden" name="rm" value="0">
+           <input type="hidden" class="item_num" name="item_number" value="">
+      </form>
+
+</div>
+
+<script>
+   window.recent_cards = [];
+   window.sent_card = <%- sent_card %>;
+</script>
+
+
+<div class="section">
+     <h2 class="sent">Tell everyone!</h2>
+
+ <script>(function(d, s, id) {
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+   fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+        <span id="fb-root"></span>
+
+        <div id="share">
+
+            <div>
+              <a href="https://twitter.com/share" class="twitter-share-button" data-text="I sent a cool postcard!" data-count="none" data-via="swizec">Tweet</a>
+           </div>
+           <div>
+           <fb:like send="true" layout="button_count" width="50" show_faces="false"></fb:like>
+        </div>
+
+</div>
+
+</div>
+<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
