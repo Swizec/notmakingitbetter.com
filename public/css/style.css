@@ -325,6 +325,73 @@ footer {
   max-width: 140mm;
 }
 
+#card-form .back {
+    background: white;
+}
+
+.flippable {
+    -webkit-perspective: 600;
+}
+/* -- make sure to declare a default for every property that you want animated -- */
+/* -- general styles, including Y axis rotation -- */
+.flippable .front {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 900;
+
+    -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+    -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+
+    -webkit-transform: rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+
+    /* -- transition is the magic sauce for animation -- */
+    -o-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+.flippable.flip .front {
+    z-index: 900;
+
+    -webkit-transform: rotateY(180deg);
+
+    -moz-box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+}
+
+.flippable .back {
+    position: relative;
+    top: -100mm;
+    left: 0;
+    z-index: 800;
+
+    -webkit-transform: rotateY(-180deg);
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+
+    /* -- transition is the magic sauce for animation -- */
+    -o-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.flippable.flip .back {
+    z-index: 1000;
+
+    -webkit-transform: rotateY(0deg);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+}
+
 /* =============================================================================
    Non-semantic helper classes
    Please define your styles before this section.
