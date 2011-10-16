@@ -7,9 +7,11 @@ var express = require('express');
 
 var app = module.exports = express.createServer();
 var ipn = require('paypal-ipn');
+var _ = require('underscore');
 
 var postcards = require('./lib/postcards');
 var payments = require('./lib/payments');
+var notifications = require('./lib/notifications');
 var settings = require('./settings');
 
 // Configuration
@@ -64,6 +66,9 @@ app.post('/ipn/:id', function (req, res) {
             payments.process(req.params.id,
                              req.body,
                              function (err) {
+                                 notifications.email('confirmation',
+                                                     _.extend({postcard: req.params.id},
+                                                              req.body));
                                  res.send({});
                              });
         }else{
