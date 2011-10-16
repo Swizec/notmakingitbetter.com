@@ -201,14 +201,129 @@ table { border-collapse: collapse; border-spacing: 0; }
    Author: Swizec
    ========================================================================== */
 
+html, body {
+    height: 100%;
+    width: 100%;
+}
 
 body {
     background: url('/images/padded.png');
     font-family: 'Amaranth', sans-serif;
     color: white;
+
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+
+    -moz-box-orient: vertical;
+    -moz-box-pack: center;
+
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+
+    box-orient: vertical;
+    box-pack: center;
 }
 
+section {
+    display: block;
+}
 
+#container {
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+
+    -moz-box-orient: vertical;
+    -moz-box-flex: 1;
+
+    -webkit-box-orient: vertical;
+    -webkit-box-flex: 1;
+
+    box-orient: vertical;
+    box-flex: 1;
+}
+
+header {
+    margin-bottom: 15mm;
+}
+
+header h1 {
+    font-size: 3.5em;
+    font-family: 'Lobster Two', cursive;
+    text-align: center;
+}
+
+header h1 span {
+  font-size: 0.8em;
+  padding-left: 1em;
+}
+
+header p {
+  font-size: 1.5em;
+  line-height: 0.7em;
+  text-align: center;
+}
+
+header p span {
+  color: #CC1212;
+  font-weight: bold;
+}
+
+footer {
+    display: block;
+}
+
+#main {
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+
+    -moz-box-flex: 1;
+    -moz-box-orient: vertical;
+    -moz-box-align: center;
+
+    -webkit-box-flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: center;
+
+    box-flex: 1;
+    box-orient: vertical;
+    box-align: center;
+}
+
+#card-form div.front, #card-form div.centered, #card-form div.back {
+    width: 150mm;
+    height: 100mm;
+    background: white;
+}
+
+#card-form .front div.centered {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+
+    -moz-box-pack: center;
+    -moz-box-align: center;
+}
+
+#card-form .front .image_form {
+  position: relative;
+  top: -100mm;
+  left: 0px;
+  z-index: 1;
+  background: none;
+}
+
+#card-form img {
+  height: auto;
+  width: auto;
+  max-height: 90mm;
+  max-width: 140mm;
+}
 
 /* =============================================================================
    Non-semantic helper classes

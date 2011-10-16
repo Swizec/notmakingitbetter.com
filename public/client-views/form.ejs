@@ -1,14 +1,12 @@
 
 <div class="front">
-<%= img_tag(image) %>
-</div>
-
-<!--<div class="front">
-     <%= img_tag(image) %>
-     <div class="image_form">
-          <input id="image" name="image" value="<%= (changed) ? image : '' %>" placeholder="Enter an image URL" type="text" />
-          <input type="button" value="Change Image" />
-          <a href="#" class="flip">Write!</a>
+     <div class="centered">
+        <div class="image"><%= img_tag(image) %></div>
+     </div>
+     <div class="image_form centered">
+       <input id="image" name="image" value="<%= (changed) ? image : '' %>" placeholder="Enter an image URL" type="text" />
+       <input type="button" value="Change Image" />
+       <a href="#" class="flip">Write!</a>
      </div>
 </div>
 <div class="back">
@@ -18,4 +16,4 @@
      </div>
      <a href="#" class="send"><%= (typeof(id) != 'undefined') ? 'Save' : 'Send' %></a>
      <a href="#" class="flip">Flip</a>
-</div>-->
+</div>
