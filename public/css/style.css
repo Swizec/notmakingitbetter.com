@@ -206,29 +206,47 @@ body {
     background: url('/images/padded.png');
     font-family: 'Amaranth', sans-serif;
     color: white;
+
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+
+    -moz-box-orient: vertical;
+    -moz-box-pack: center;
+
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+
+    box-orient: vertical;
+    box-pack: center;
+}
+
+
+#container {
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+
+    -moz-box-orient: vertical;
+    -moz-box-pack: stretch;
+    -moz-box-flex: 1;
+
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: stretch;
+    -webkit-box-flex: 1;
+
+    box-orient: vertical;
+    box-flex: 1;
 }
 
 header {
-  padding-bottom: 1em;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-align: center;
-  display: -moz-box;
-  -moz-box-orient: vertical;
-  -moz-box-align: center;
-  display: -o-box;
-  -o-box-orient: vertical;
-  -o-box-align: center;
-  display: box;
-  box-orient: vertical;
-  box-align: center;
+    margin-bottom: 15mm;
 }
 
 header h1 {
-  font-size: 3.5em;
-  padding-top: 1em;
-  margin-bottom: 0;
-  font-family: 'Lobster Two', cursive;
+    font-size: 3.5em;
+    font-family: 'Lobster Two', cursive;
+    text-align: center;
 }
 
 header h1 span {
@@ -239,6 +257,7 @@ header h1 span {
 header p {
   font-size: 1.5em;
   line-height: 0.7em;
+  text-align: center;
 }
 
 header p span {
@@ -246,53 +265,80 @@ header p span {
   font-weight: bold;
 }
 
-h2 {
-  font-size: 1.8em;
-}
-
-h2.sent {
-    margin-top: -1.5em;
-}
-
 footer {
-    padding: 1em;
-    margin-top: 2em;
-    display: -webkit-box;
-    -webkit-box-align: center;
+    display: block;
+}
+
+#main {
     display: -moz-box;
-    -moz-box-align: center;
-    display: -o-box;
-    -o-box-align: center;
+    display: -webkit-box;
     display: box;
+
+    -moz-box-flex: 1;
+    -moz-box-orient: vertical;
+    -moz-box-align: center;
+
+    -webkit-box-flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: center;
+
+    box-flex: 1;
+    box-orient: vertical;
     box-align: center;
 }
 
-footer div {
-    margin-left: 1em;
+#card-form {
+    font-family: 'Podkova', serif;
 }
 
-.panel {
-    float: left;
-    width: 200px;
-    height: 200px;
-    margin: 20px;
-    position: relative;
+#card-form div.front, #card-form div.centered, #card-form div.back {
+    width: 150mm;
+    height: 100mm;
+    background: white;
+}
 
+#card-form .front div.centered {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+
+    -moz-box-pack: center;
+    -moz-box-align: center;
+}
+
+#card-form .front .image_form {
+  position: relative;
+  top: -100mm;
+  margin-bottom: -100mm;
+  left: 0px;
+  z-index: 1;
+  background: none;
+}
+
+#card-form img {
+  height: auto;
+  width: auto;
+  max-height: 90mm;
+  max-width: 140mm;
+}
+
+#card-form .back {
+    background: white;
+}
+
+.flippable {
     -webkit-perspective: 600;
 }
 /* -- make sure to declare a default for every property that you want animated -- */
 /* -- general styles, including Y axis rotation -- */
-.panel .front {
-    float: none;
-    position: absolute;
+.flippable .front {
+    position: relative;
     top: 0;
     left: 0;
     z-index: 900;
-    width: inherit;
-    height: inherit;
-    border: 1px solid #ccc;
-    background: #6b7077;
-    text-align: center;
 
     -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
     -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
@@ -309,9 +355,8 @@ footer div {
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
 }
-.panel.flip .front {
+.flippable.flip .front {
     z-index: 900;
-    border-color: #eee;
 
     -webkit-transform: rotateY(180deg);
 
@@ -320,30 +365,26 @@ footer div {
     box-shadow: 0 15px 50px rgba(0,0,0,0.2);
 }
 
-.panel .back {
-    float: none;
-    position: absolute;
-    top: 0;
+.flippable .back {
+    position: relative;
+    top: -100mm;
+    margin-bottom: -100mm;
     left: 0;
     z-index: 800;
-    width: inherit;
-    height: inherit;
-    border: 1px solid #ccc;
-    background: #80868d;
 
     -webkit-transform: rotateY(-180deg);
     -webkit-transform-style: preserve-3d;
     -webkit-backface-visibility: hidden;
 
     /* -- transition is the magic sauce for animation -- */
-    -o-transition: all .4s ease-in-out;
-    -ms-transition: all .4s ease-in-out;
-    -moz-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
+    -o-transition: -webkit-transform .4s ease-in-out;
+    -ms-transition: -webkit-transform .4s ease-in-out;
+    -moz-transition: -webkit-transform .4s ease-in-out;
+    -webkit-transition: -webkit-transform .4s ease-in-out;
+    transition: -webkit-transform .4s ease-in-out;
 }
 
-.panel.flip .back {
+.flippable.flip .back {
     z-index: 1000;
 
     -webkit-transform: rotateY(0deg);
@@ -352,124 +393,18 @@ footer div {
     -webkit-box-shadow: 0 15px 50px rgba(0,0,0,0.2);
 }
 
-#container {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    display: -moz-box;
-    -moz-box-orient: vertical;
-    display: -o-box;
-    -o-box-align: center;
-    display: box;
-    box-align: center;
-}
-
-#main {
-    dislay: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-box-align: center;
-    display: -moz-box;
-    -moz-box-orient: vertical;
-    -moz-box-align: center;
-    display: -o-box;
-    -o-box-orient: vertical;
-    -o-box-align: center;
-    display: box;
-    box-orient: vertical;
-    box-align: center;
-}
-
-#main .section {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-box-align: center;
-    display: -moz-box;
-    -moz-box-orient: vertical;
-    -moz-box-align: center;
-    display: -o-box;
-    -o-box-orient: vertical;
-    -o-box-align: center;
-    display: box;
-    box-orient: vertical;
-    box-align: center;
-}
-
-#card-form {
-    width: 150mm;
-    height: 100mm;
-    font-family: 'Podkova', serif;
-    -webkit-box-flex: 0;
-}
-
-#card-form input, #card-form textarea {
-    font-family: "Podkova", serif;
-}
-
-#card-form div {
-    display: -webkit-box;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: center;
-    -webkit-box-align: center;
-    display: -moz-box;
-    -moz-box-orient: center;
-    -moz-box-align: center;
-    display: -o-box;
-    -o-box-orient: center;
-    -o-box-align: center;
-    display: box;
-    box-orient: center;
-    box-align: center;
-    background: white;
-}
-
-#card-form .back {
-  background: url('/images/back.jpg') center center no-repeat;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  -o-box-orient: vertical;
-  box-orient: vertical;
-}
-
-#card-form .back .send {
-  position: absolute;
-  top: 26mm;
-  right: 12mm;
-}
-
-#card-form .back .flip {
-  font-size: 0.6em;
-  position: absolute;
-  bottom: 0px;
-  right: 10px;
-}
-
-#card-form {
-  font-size: 2em;
-  font-family: "Podkova";
-}
-
-#card-form img {
-  max-height: 90mm;
-  max-width: 140mm;
-}
-
 #card-form .image_form {
-   position: absolute;
-   top: 0px;
-   left: 0px;
-   width: 100%;
-   height: 100%;
-   background: none;
-   -webkit-box-orient: vertical;
-   -moz-box-orient: vertical;
-   -o-box-orient: vertical;
-   box-orient: vertical;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+
+    font-size: 1.6em;
 }
 
 #card-form .image_form input {
-   display: -webkit-box;
-   display: -moz-box;
-   display: -o-box;
-   display: box;
+    display: block;
+    margin: 0 auto;
+
    opacity: 0.1;
    padding: 0.2em;
    border-radius: 15px;
@@ -477,6 +412,8 @@ footer div {
    -webkit-border-radius: 15px;
    -o-border-radius: 15px;
    outline: 0;
+
+   font-family: inherit;
 }
 
 #card-form .image_form:hover input {
@@ -488,7 +425,7 @@ footer div {
 }
 
 #card-form .image_form input[type=text] {
-  width: 100mm;
+    width: 100mm;
 }
 
 #card-form .image_form input[type=text]:focus {
@@ -499,100 +436,146 @@ footer div {
 }
 
 #card-form .image_form input[type=button] {
-  margin-top: 0.5em;
-  font-size: 0.7em;
-  padding: 0.2em 0.5em;
+    font-size: 0.9em;
+    padding: 0.3em 1em 0.3em 1em;
+    margin-top: 1em;
 }
 
 #card-form .image_form a {
-  font-size: 0.8em;
-  position: absolute;
-  bottom: 0px;
-  right: 10px;
+    position: absolute;
+    right: 2mm;
+    top: 89mm;
+    font-size: 0.8em;
 }
 
-#card-form .text_form {
-  background: none;
+#card-form .image_form a:active {
+    top: 89.5mm !important;
 }
 
-#card-form .text_form textarea {
-  border: 0;
-  font-size: 0.8em;
-  outline: 0;
-  overflow: hidden;
-  width: 70mm;
-  height: 85mm;
-  min-width: 70mm;
-  min-height: 85mm;
-  max-width: 70mm;
-  max-height: 85mm;
+#card-form .back {
+    background: white url("/images/postcard_form.gif") top left no-repeat !important;
 
-  -webkit-box-sizing: border-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-pack: bottom;
-  -webkit-box-align: stretch;
-  display: -webkit-box;
-  display: -moz-box;
-  -moz-box-orient: horizontal;
-  -moz-box-align: stretch;
-  -moz-box-pack: bottom;
-  -moz-box-sizing: border-box;
-  display: -o-box;
-  -o-box-orient: horizontal
-  -o-box-align: stretch;
-  -o-box-pack: bottom;
-  -o-box-sizing: border-box;
-  display: box;
-  box-orient: horizontal;
-  box-align: stretch;
-  box-pack: bottom;
-  box-sizing: border-box;
-  background: none;
+    font-size: 1.2em;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+
+    -webkit-box-align: stretch;
+    -moz-box-align: stetch;
+    box-align: stretch;
 }
 
-#card-form .text_form #address {
-  height: 55mm;
-  min-height: 55mm;
-  max-height: 55mm;
-  position: relative;
-  top: 23mm;
-  text-align: right;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
-  padding-right: 1em;
-  line-height: 1.75em;
+#card-form .back div {
+    width: 75mm;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+
+      -webkit-box-align: start;
+    -moz-box-align: start;
+    box-align: start;
 }
 
-#card-form .text_form #text {
-  margin-top: -2mm;
+#card-form .back div textarea {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: bordr-box;
+
+    background: none;
+    font-family: "Podkova" serif;
+    font-size: 1.2em;
+    outline: 0;
+    overflow: hidden;
+    border: 0;
+
+    color: black;
+}
+
+#card-form .back div.left textarea {
+    line-height: 1.3em;
+    padding: 1em 0 0 1em;
+    height: 89mm;
+    max-height: 89mm;
+    min-height: 89mm;
+}
+
+#card-form .back div.right textarea {
+    height: 48.5mm;
+    min-height: 48.5mm;
+    max-height: 48.5mm;
+    margin-top: 10mm;
+    text-align: right;
+    padding: 0.5em 8mm 0 0;
+    line-height: 1.9em;
+}
+
+#card-form .back .send {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    margin: 22mm 0 0 44.5mm;
+
+    font-size: 1.2em;
+}
+
+#card-form .back .flip {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    margin-left: 60mm;
+    margin-top: 2mm;
 }
 
 #magic-button {
-  position: relative;
-  top: -90mm;
-  left: 56mm;
-  opacity: 0;
-  -webkit-transition: opacity 400ms ease-in-out;
-  -moz-transition: opacity 400ms ease-in-out;
-  -o-transition: opacity 400ms ease-in-out;
-  transition: opacity 400ms ease-in-out;
+    position: relative;
+    top: -190mm;
+    left: 111mm;
+    z-index: 1000;
+
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in-out;
+    -moz-transition: opacity 400ms ease-in-out;
+    -o-transition: opacity 400ms ease-in-out;
+    transition: opacity 400ms ease-in-out;
 }
 
 #magic-button.visible {
-  opacity: 1;
+    opacity: 1;
+}
+
+section {
+  display: block;
+}
+
+section#card {
+  max-height: 100mm !important;
 }
 
 #recent {
+  margin-top: 3em;
 }
 
 #recent ol {
-    list-style: none;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -o-box;
-    display: box;
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
 }
 
 #recent ol li {
@@ -602,43 +585,28 @@ footer div {
   margin: 1em;
 
   display: -webkit-box;
+  display: -moz-box;
+  display:  box;
+
   -webkit-box-pack: center;
   -webkit-box-align: center;
-  display: -moz-box;
+
   -moz-box-pack: center;
   -moz-box-align: center;
-  display: -o-box;
-  -o-box-pack: center;
-  -o-box-align: center;
-  display: box;
+
   box-pack: center;
   box-align: center;
-
-  -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
-  -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
-  box-shadow: 0 1px 5px rgba(0,0,0,0.9);
 }
 
 #recent ol li img {
-  max-width: 93%;
-  max-height: 90%;
-  display: block;
+    height: auto;
+    width: auto;
+    max-height: 190px;
+    max-width: 290px;
 }
 
-#share {
-    display: -webkit-box;
-    -webkit-box-orient: horizontal;
-    display: -moz-box;
-    -moz-box-orient: horizontal;
-    display: -o-box;
-    -o-box-orient: horizontal;
-    display: box;
-    box-orient: horizontal;
-    margin-left: 40px;
-}
-
-#share div {
-    padding: 5px;
+footer {
+    padding: 1em;
 }
 
 /* =============================================================================
@@ -707,3 +675,44 @@ footer div {
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3{ page-break-after: avoid; }
 }
+
+
+/***
+Awesome buttons
+***/
+
+.awesome, .awesome:visited {
+    background: #222 url(/images/alert-overlay.png) repeat-x;
+    display: inline-block;
+    padding: 5px 10px 6px;
+    color: #fff;
+    text-decoration: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    position: relative;
+    cursor: pointer;
+}
+
+.awesome:hover { background-color: #111; color: #fff; }
+.awesome:active	{ top: 1px; }
+.small.awesome, .small.awesome:visited{ font-size: 11px; padding: ; }
+.awesome, .awesome:visited,
+.medium.awesome, .medium.awesome:visited { font-size: 13px; font-weight: bold; line-height: 1; text-shadow: 0 -1px 1px rgba(0,0,0,0.25); }
+.large.awesome, .large.awesome:visited { font-size: 14px; padding: 8px 14px 9px; }
+
+.green.awesome, .green.awesome:visited { background-color: #91bd09; }
+.green.awesome:hover { background-color: #749a02; }
+.blue.awesome, .blue.awesome:visited { background-color: #2daebf; }
+.blue.awesome:hover{ background-color: #007d9a; }
+.red.awesome, .red.awesome:visited{ background-color: #e33100; }
+.red.awesome:hover{ background-color: #872300; }
+.magenta.awesome, .magenta.awesome:visited{ background-color: #a9014b; }
+.magenta.awesome:hover{ background-color: #630030; }
+.orange.awesome, .orange.awesome:visited{ background-color: #ff5c00; }
+.orange.awesome:hover{ background-color: #d45500; }
+.yellow.awesome, .yellow.awesome:visited{ background-color: #ffb515; }
+.yellow.awesome:hover{ background-color: #fc9200; }

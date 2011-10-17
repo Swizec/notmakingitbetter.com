@@ -130,7 +130,6 @@
 
         render: function () {
             this.$(this.el).html(this.template.render(this.model.toJSON()));
-            //this.$(this.el).addClass("panel");
 
             return this.el;
         }
@@ -174,9 +173,11 @@
             _.map(cards.models, function (card) {
                 var recent = new RecentView({model: card});
                 $ol.append(recent.render());
-                if ($(window).width()-$ol.width() < $ol.children("li:first").width()) {
-                    this.$("#recent").append("<ol></ol>");
-                    $ol = this.$("#recent ol:last");
+                console.log($ol.children("li:first").width(), $ol.width());
+                if ($(window).width()-$ol.width() < $ol.children("li:first").width()*($ol.children("li").size()-2)) {
+                    $ol = $("<ol></ol>");
+                    this.$("#recent").append($ol);
+//                    $ol = this.$("#recent ol").last();
                 }
             });
         }
