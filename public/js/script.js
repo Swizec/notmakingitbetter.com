@@ -73,7 +73,8 @@
                            {silent: silent});
         },
 
-        flip: function () {
+        flip: function (event) {
+            event.preventDefault();
             this.$(this.el).toggleClass('flip');
             if (!this.$(this.el).hasClass('flip')) {
                 $("#magic-button").removeClass('visible');
