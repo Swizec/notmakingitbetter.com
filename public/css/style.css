@@ -455,6 +455,108 @@ footer {
     top: 89.5mm !important;
 }
 
+#card-form .back {
+    background: white url("/images/postcard_form.gif") top left no-repeat !important;
+
+    font-size: 1.2em;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+
+    -webkit-box-align: stretch;
+    -moz-box-align: stetch;
+    box-align: stretch;
+}
+
+#card-form .back div {
+    width: 75mm;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+
+      -webkit-box-align: start;
+    -moz-box-align: start;
+    box-align: start;
+}
+
+#card-form .back div textarea {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: bordr-box;
+
+    background: none;
+    font-family: "Podkova" serif;
+    font-size: 1.2em;
+    outline: 0;
+    overflow: hidden;
+    border: 0;
+
+    color: black;
+}
+
+#card-form .back div.left textarea {
+    line-height: 1.3em;
+    padding: 1em 0 0 1em;
+    height: 89mm;
+    max-height: 89mm;
+    min-height: 89mm;
+}
+
+#card-form .back div.right textarea {
+    height: 48.5mm;
+    min-height: 48.5mm;
+    max-height: 48.5mm;
+    margin-top: 10mm;
+    text-align: right;
+    padding: 0.5em 8mm 0 0;
+    line-height: 1.9em;
+}
+
+#card-form .back .send {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    margin: 22mm 0 0 44.5mm;
+
+    font-size: 1.2em;
+}
+
+#card-form .back .flip {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    margin-left: 60mm;
+    margin-top: 2mm;
+}
+
+#magic-button {
+    position: relative;
+    top: -190mm;
+    left: 111mm;
+    z-index: 1000;
+
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in-out;
+    -moz-transition: opacity 400ms ease-in-out;
+    -o-transition: opacity 400ms ease-in-out;
+    transition: opacity 400ms ease-in-out;
+}
+
+#magic-button.visible {
+    opacity: 1;
+}
 
 /* =============================================================================
    Non-semantic helper classes
