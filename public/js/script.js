@@ -177,7 +177,6 @@
                 if ($(window).width()-$ol.width() < $ol.children("li:first").width()*($ol.children("li").size()-2)) {
                     $ol = $("<ol></ol>");
                     this.$("#recent").append($ol);
-//                    $ol = this.$("#recent ol").last();
                 }
             });
         }
