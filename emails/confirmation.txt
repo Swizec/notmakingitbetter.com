@@ -1,0 +1,15 @@
+
+Hello {{name}},
+<br /><br />
+you just sent a cool postcard! Hopefully ti will make somebody a very
+happy camper.
+<br /><br />
+You can still check it out here: http://postme.me/sent/{{postcard}}
+<br /><br />
+The card should be shipped out in a couple of days. I'll send you
+another email when it goes out.
+<br /><br />
+Reply to this mail on the slightest whim.
+<br /><br />
+Cheers,
+~Swizec

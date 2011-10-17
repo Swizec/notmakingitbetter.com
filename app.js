@@ -7,9 +7,12 @@ var express = require('express');
 
 var app = module.exports = express.createServer();
 var ipn = require('paypal-ipn');
+var _ = require('underscore');
 
 var postcards = require('./lib/postcards');
 var payments = require('./lib/payments');
+var notifications = require('./lib/notifications');
+var settings = require('./settings');
 
 // Configuration
 
@@ -39,7 +42,8 @@ app.get('/', function(req, res){
         res.render('index', {
             recent_cards: JSON.stringify(cards),
             sent_card: JSON.stringify(''),
-            head: 'Postcards are cool! <span>Send one ;)</span>'
+            head: 'Postcards are cool! <span>Send one ;)</span>',
+            DEV: settings.dev
         });
     });
 });
@@ -62,6 +66,9 @@ app.post('/ipn/:id', function (req, res) {
             payments.process(req.params.id,
                              req.body,
                              function (err) {
+                                 notifications.email('confirmation',
+                                                     _.extend({postcard: req.params.id},
+                                                              req.body));
                                  res.send({});
                              });
         }else{
@@ -81,7 +88,8 @@ app.get('/sent/:id', function (req, res) {
         res.render('sent', {
             recent_cards: JSON.stringify([]),
             sent_card: JSON.stringify(card),
-            head: 'I sent a postcard! <span>Send another ;)</span>'
+            head: 'I sent a postcard! <span>Send another ;)</span>',
+            DEV: settings.dev
         });
     });
 });
@@ -89,6 +97,6 @@ app.get('/sent/:id', function (req, res) {
 // Only listen on $ node app.js
 
 if (!module.parent) {
-  app.listen(4000);
+  app.listen((settings.dev) ? 4001 :4000);
   console.log("Express server listening on port %d", app.address().port);
 }
