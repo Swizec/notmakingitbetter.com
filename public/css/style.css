@@ -312,6 +312,7 @@ footer {
 #card-form .front .image_form {
   position: relative;
   top: -100mm;
+  margin-bottom: -100mm;
   left: 0px;
   z-index: 1;
   background: none;
@@ -367,6 +368,7 @@ footer {
 .flippable .back {
     position: relative;
     top: -100mm;
+    margin-bottom: -100mm;
     left: 0;
     z-index: 800;
 
@@ -562,7 +564,7 @@ section#card {
 }
 
 #recent {
-  margin-top: 50px;
+  margin-top: 3em;
 }
 
 #recent ol {
