@@ -1,7 +1,7 @@
 {
   "name": "project-boilerplate",
   "description": "Just the boilerplate for my projects.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/Swizec/node-project-boilerplate.git"
