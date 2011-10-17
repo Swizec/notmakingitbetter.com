@@ -201,10 +201,6 @@ table { border-collapse: collapse; border-spacing: 0; }
    Author: Swizec
    ========================================================================== */
 
-html, body {
-    height: 100%;
-    width: 100%;
-}
 
 body {
     background: url('/images/padded.png');
@@ -225,9 +221,6 @@ body {
     box-pack: center;
 }
 
-section {
-    display: block;
-}
 
 #container {
     display: -moz-box;
@@ -235,9 +228,11 @@ section {
     display: box;
 
     -moz-box-orient: vertical;
+    -moz-box-pack: stretch;
     -moz-box-flex: 1;
 
     -webkit-box-orient: vertical;
+    -webkit-box-pack: stretch;
     -webkit-box-flex: 1;
 
     box-orient: vertical;
@@ -556,6 +551,60 @@ footer {
 
 #magic-button.visible {
     opacity: 1;
+}
+
+section {
+  display: block;
+}
+
+section#card {
+  max-height: 100mm !important;
+}
+
+#recent {
+  margin-top: 50px;
+}
+
+#recent ol {
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+}
+
+#recent ol li {
+  height: 200px;
+  width: 300px;
+  background: white;
+  margin: 1em;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display:  box;
+
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+
+  -moz-box-pack: center;
+  -moz-box-align: center;
+
+  box-pack: center;
+  box-align: center;
+}
+
+#recent ol li img {
+    height: auto;
+    width: auto;
+    max-height: 190px;
+    max-width: 290px;
+}
+
+footer {
+    padding: 1em;
 }
 
 /* =============================================================================
