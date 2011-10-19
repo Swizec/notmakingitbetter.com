@@ -94,6 +94,22 @@ app.get('/sent/:id', function (req, res) {
     });
 });
 
+app.get('/curation', function (req, res) {
+    res.render('curation', {
+        recent_cards: JSON.stringify([]),
+        sent_card: JSON.stringify(''),
+        head: "Curate the cards you dawg!",
+        DEV: settings.dev,
+        CURATION: true
+    });
+});
+
+app.get('/for_curation', function (req, res) {
+    postcards.for_curation(function (err, cards) {
+        res.send(cards);
+    });
+});
+
 // Only listen on $ node app.js
 
 if (!module.parent) {
