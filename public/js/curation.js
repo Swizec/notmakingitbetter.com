@@ -8,6 +8,11 @@
         tagName: "li",
         template: new EJS({url: '/client-views/curation.ejs'}),
 
+        events: {
+            "click .nope": "ban",
+            "click .yep": "approve"
+        },
+
         initialize: function () {
             _.bindAll(this, "render");
 
@@ -16,9 +21,31 @@
         },
 
         render: function () {
-            this.$(this.el).html(this.template.render(this.model.toJSON()));
+            var $el = this.$(this.el);
+
+            $el.html(this.template.render(this.model.toJSON()));
+
+            $el.removeClass("banned").removeClass("approved");
+
+            if (this.model.get("show_recent")) {
+                $el.addClass("approved");
+            }else if (this.model.get("banned_from_recent")) {
+                $el.addClass("banned");
+            }
 
             return this.el;
+        },
+
+        approve: function () {
+            this.model.set({"show_recent": true,
+                            "banned_from_recent": false});
+            this.model.save();
+        },
+
+        ban: function () {
+            this.model.set({"banned_from_recent": true,
+                            "show_recent": false});
+            this.model.save();
         }
     });
 
