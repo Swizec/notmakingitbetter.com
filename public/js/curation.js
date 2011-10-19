@@ -37,15 +37,13 @@
         },
 
         approve: function () {
-            this.model.set({"show_recent": true,
+            this.model.save({"show_recent": true,
                             "banned_from_recent": false});
-            this.model.save();
         },
 
         ban: function () {
-            this.model.set({"banned_from_recent": true,
+            this.model.save({"banned_from_recent": true,
                             "show_recent": false});
-            this.model.save();
         }
     });
 
