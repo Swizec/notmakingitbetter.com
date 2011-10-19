@@ -94,6 +94,12 @@ app.get('/sent/:id', function (req, res) {
     });
 });
 
+app.get('/curation', function (req, res) {
+    res.render('curation', {
+        DEV: settings.dev
+    });
+});
+
 // Only listen on $ node app.js
 
 if (!module.parent) {
