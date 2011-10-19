@@ -616,12 +616,14 @@ section#card {
   box-align: center;
 }
 
-#curation_cards li {
+#curation_cards li, #curation_cards li {
     height: 60mm;
     width: 90mm;
     margin: 1em;
     background: white;
+}
 
+#curation_cards li div {
     display: -webkit-box;
     display: -moz-box;
     display:  box;
@@ -634,6 +636,8 @@ section#card {
 
     box-pack: center;
     box-align: center;
+
+    background: none;
 }
 
 #curation_cards li.banned {
@@ -649,6 +653,12 @@ section#card {
     width: auto;
     max-width: 81mm;
     max-height: 54mm;
+}
+
+#curation_cards li button {
+    font-size: 1.2em;
+    margin: 0.5em;
+    margin-top: -20px;
 }
 
 footer {
