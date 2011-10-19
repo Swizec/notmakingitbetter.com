@@ -55,9 +55,18 @@ mpq.push(["init", "76f169abcb212f6c9143700718a98247"]);
 <% }else{ %>
 <script>var mpq = {track: function () {}}</script>
 <% } %>
+
+<script>
+   window.recent_cards = <%- recent_cards %>;
+   window.sent_card = <%- sent_card %>;
+</script>
+
 <!-- scripts concatenated and minified via ant build script-->
 <script src="/js/plugins.js"></script>
 <script src="/js/script.js"></script>
+<% if (typeof(CURATION) !== "undefined") { %>
+<script src="/js/curation.js"></script>
+<% } %>
 <!-- end scripts-->
 
 <% if (!DEV) { %>
