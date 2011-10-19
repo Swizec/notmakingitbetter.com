@@ -39,7 +39,16 @@
         },
 
         reset_cards: function (cards) {
-            var $ol = this.$("#curation_cards");
+            var $ol = this.$("#curation_cards ol:last");
+            _.map(cards.models, function (card) {
+                var recent = new CardView({model: card});
+                $ol.append(recent.render());
+
+                if ($(window).width()-$ol.width() < $ol.children("li:first").width()*($ol.children("li").size()-2)) {
+                    $ol = $("<ol></ol>");
+                    this.$("#curation_cards").append($ol);
+                }
+            });
             _.map(cards.models, function (card) {
                 var view = new CardView({model: card});
                 $ol.append(view.render());

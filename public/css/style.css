@@ -605,6 +605,52 @@ section#card {
     max-width: 290px;
 }
 
+#curation_cards ol {
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+}
+
+#curation_cards li {
+    height: 60mm;
+    width: 90mm;
+    margin: 1em;
+    background: white;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display:  box;
+
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+
+    -moz-box-pack: center;
+    -moz-box-align: center;
+
+    box-pack: center;
+    box-align: center;
+}
+
+#curation_cards li.banned {
+    background: #F01313;
+}
+
+#curation_cards li.approved {
+    background: #21DB21;
+}
+
+#curation_cards li img {
+    height: auto;
+    width: auto;
+    max-width: 81mm;
+    max-height: 54mm;
+}
+
 footer {
     padding: 1em;
 }
