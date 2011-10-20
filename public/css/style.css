@@ -590,11 +590,11 @@ section#card {
 }
 
 #sharing-is-caring div.twitter {
-    width: 100px;
+    max-width: 100px;
 }
 
 #sharing-is-caring div.google {
-    width: 65px;
+    max-width: 65px;
 }
 
 #recent {
