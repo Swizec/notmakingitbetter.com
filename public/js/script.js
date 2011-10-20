@@ -174,7 +174,6 @@
             _.map(cards.models, function (card) {
                 var recent = new RecentView({model: card});
                 $ol.append(recent.render());
-                console.log($ol.children("li:first").width(), $ol.width());
                 if ($(window).width()-$ol.width() < $ol.children("li:first").width()*($ol.children("li").size()-2)) {
                     $ol = $("<ol></ol>");
                     this.$("#recent").append($ol);
