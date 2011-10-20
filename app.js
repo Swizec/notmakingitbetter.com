@@ -89,6 +89,7 @@ app.get('/sent/:id', function (req, res) {
         res.render('sent', {
             recent_cards: JSON.stringify([]),
             sent_card: JSON.stringify(card),
+            main_card: card,
             head: 'I sent a postcard! <span>Send another ;)</span>',
             DEV: settings.dev
         });
@@ -99,6 +100,7 @@ app.get('/curation', function (req, res) {
     res.render('curation', {
         recent_cards: JSON.stringify([]),
         sent_card: JSON.stringify(''),
+        main_card: {},
         head: "Curate the cards you dawg!",
         DEV: settings.dev,
         CURATION: true
