@@ -152,9 +152,9 @@
 
             var card;
             if (typeof(sent_card) != "object") {
-                var random_card = Recents.at(Math.round(Math.random()*100)%(Recents.length-1));
+                var _card = new Card(main_card);
                 card = new Card({
-                    image: (random_card) ? random_card.get('image') : '',
+                    image: (_card) ? _card.get('image') : '',
                     text: "",
                     address: ""
                 });
