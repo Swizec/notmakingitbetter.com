@@ -26,12 +26,27 @@
 </head>
 <body>
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_PI/all.js#xfbml=1&appId=307049529309356";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div id="container">
 	<header>
           <h1><%- head %></h1>
           <p>Yep, over snail mail! Anywhere in the world.</p>
           <p>Cheaper than coffee! (<span>$2</span>)</p>
 	</header>
+
+        <section id="sharing-is-caring">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Postmeme" data-related="Swizec:A geek with a hat">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></scrip>
+          <div class="fb-like" data-href="http://postme.me" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+<fb:like href="http://dev.notmakingitbetter.com" send="true" layout="button_count" width="450" show_faces="true"></fb:like>
+        </section>
 
 	<div id="main" role="main">
           <%- body %>
