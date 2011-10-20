@@ -240,7 +240,7 @@ body {
 }
 
 header {
-    margin-bottom: 15mm;
+    margin-bottom: 10mm;
 }
 
 header h1 {
@@ -561,6 +561,40 @@ section {
 
 section#card {
   max-height: 100mm !important;
+}
+
+#sharing-is-caring {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+
+    -moz-box-pack: center;
+    -moz-box-align: center;
+
+    box-pack: center;
+    box-align: center;
+
+    margin-bottom: 3mm;
+}
+
+#sharing-is-caring p {
+    font-size: 1.2em;
+    padding-right: 1em;
+}
+
+#sharing-is-caring div {
+    height: 20px;
+}
+
+#sharing-is-caring div.twitter {
+    width: 100px;
+}
+
+#sharing-is-caring div.google {
+    width: 65px;
 }
 
 #recent {
