@@ -1,7 +1,60 @@
 
 <html>
 
+        <link href='http://fonts.googleapis.com/css?family=Podkova|Amaranth|Lobster+Two' rel='stylesheet' type='text/css'>
 
+<style>
+body { margin: 0; font-size: 13px; line-height: 1.231; }
+body {
+     font-family: Amaranth sans-serif;
+}
+
+ul {
+   list-style: none;
+}
+
+ul li {
+   width: 150mm;
+   height: 100mm;
+
+   display: -webkit-box;
+
+   -webkit-box-pack: center;
+   -webkit-box-align: center;
+}
+
+ul li.back {
+   background: url('/images/postcard_form.gif') top left no-repeat;
+   font-size: 1.2em;
+}
+
+ul li img {
+   max-height: 90mm;
+   max-width: 140mm;
+}
+
+ul li p {
+    font-family: "Podkova" serif;
+    font-size: 1.2em;
+    width: 75mm;
+    box-sizing: border-box;
+}
+
+ul li p.text {
+    line-height: 1.3em;
+    padding: 1em 0 0 1em;
+    height: 89mm;
+}
+
+ul li p.address {
+   height: 48.5mm;
+   margin-top: 37mm;
+   text-align: right;
+   padding: 0.5em 8mm 0 0;
+   line-height: 1.9em;
+}
+
+</style>
 
 <body>
   <ul>
@@ -9,9 +62,9 @@
      <li>
         <img src="<%= cards[i].image %>" />
      </li>
-     <li>
-        <p class="text"><%= cards[i].text %><p>
-        <p class="address"><%= cards[i].address %></p>
+     <li class="back">
+        <p class="text"><%- cards[i].text.replace(/\n/g, "<br>") %></p>
+        <p class="address"><%- cards[i].address.replace(/\n/g, "<br>") %></p>
      </li>
   <% } %>
   </ul>
