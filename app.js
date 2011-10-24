@@ -115,10 +115,11 @@ app.get('/for_curation', function (req, res) {
 
 app.get('/export', function (req, res) {
     payments.paid_cards(function (cards) {
-        res.send(cards);
-        //res.render('export', {
-        //    cards: cards
-       // });
+        res.render('export', {
+            'Content-Type': 'text/xml',
+            cards: cards,
+            layout: false
+        });
     });
 });
 

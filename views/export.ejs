@@ -1,0 +1,10 @@
+
+<postcards>
+  <% for (i in cards) { %>
+     <postcard>
+        <image><%= cards[i].image %></image>
+        <text><%= cards[i].text %></text>
+        <address><%= cards[i].address %></address>
+     </postcard>
+  <% } %>
+</postcards>
