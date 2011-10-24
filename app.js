@@ -113,6 +113,15 @@ app.get('/for_curation', function (req, res) {
     });
 });
 
+app.get('/export', function (req, res) {
+    payments.paid_cards(function (cards) {
+        res.send(cards);
+        //res.render('export', {
+        //    cards: cards
+       // });
+    });
+});
+
 // Only listen on $ node app.js
 
 if (!module.parent) {
