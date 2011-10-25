@@ -152,8 +152,9 @@
 
             var card;
             if (typeof(sent_card) != "object") {
+                var _card = new Card(main_card);
                 card = new Card({
-                    image: Recents.at(Math.round(Math.random()*100)%(Recents.length-1)).get('image'),
+                    image: (_card) ? _card.get('image') : 'http://i.imgur.com/24uzu.jpg',
                     text: "",
                     address: ""
                 });
@@ -173,7 +174,6 @@
             _.map(cards.models, function (card) {
                 var recent = new RecentView({model: card});
                 $ol.append(recent.render());
-                console.log($ol.children("li:first").width(), $ol.width());
                 if ($(window).width()-$ol.width() < $ol.children("li:first").width()*($ol.children("li").size()-2)) {
                     $ol = $("<ol></ol>");
                     this.$("#recent").append($ol);
