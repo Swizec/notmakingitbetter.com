@@ -538,13 +538,13 @@ footer {
     margin-top: 2mm;
 }
 
-#magic-button {
+/*#magic-button {
     position: relative;
     top: -90mm;
     left: 111mm;
     z-index: 1000;
 
-    opacity: 1;
+    opacity: 0;
     -webkit-transition: opacity 400ms ease-in-out;
     -moz-transition: opacity 400ms ease-in-out;
     -o-transition: opacity 400ms ease-in-out;
@@ -553,7 +553,7 @@ footer {
 
 #magic-button.visible {
     opacity: 1;
-}
+}*/
 
 section {
   display: block;

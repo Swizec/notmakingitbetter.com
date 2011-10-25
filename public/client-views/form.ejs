@@ -5,7 +5,6 @@
      </div>
      <div class="image_form centered">
        <input id="image" name="image" value="<%= (changed) ? image : '' %>" placeholder="Enter an image URL" type="text" />
-        <a href="#" class="send large red awesome"><%= (typeof(id) != 'undefined') ? 'Save' : 'Send &raquo;' %></a>
        <input type="button" value="Change Image" class="large blue awesome" />
        <a href="#" class="flip large red awesome ">Write! &raquo;</a>
      </div>
@@ -15,7 +14,7 @@
         <textarea placeholder="Write something awesome!" id="text" name="text"><%= text %></textarea>
      </div>
      <div class="right">
-        <a href="#" class="send large red awesome"><%= (typeof(id) != 'undefined') ? 'Save' : 'Send &raquo;' %></a>
+        <a href="#" class="magic-button"><img src="/images/paypal.gif" /></a>
         <textarea placeholder="Whom to?" id="address" name="address"><%= address %></textarea>
         <a href="#" class="flip small black awesome">&laquo; Flip</a>
     </div>
