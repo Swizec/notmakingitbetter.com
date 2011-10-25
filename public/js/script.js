@@ -154,7 +154,7 @@
             if (typeof(sent_card) != "object") {
                 var _card = new Card(main_card);
                 card = new Card({
-                    image: (_card) ? _card.get('image') : '',
+                    image: (_card) ? _card.get('image') : 'http://i.imgur.com/24uzu.jpg',
                     text: "",
                     address: ""
                 });
