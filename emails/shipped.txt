@@ -1,0 +1,13 @@
+
+Hello {{name}},
+<br /><br />
+just letting you know the card you sent has been printed and shipped.
+<br /><br />
+It should be arriving in about 10 days.
+<br /><br />
+Thanks for using Postme.me! Really appreciated :)
+<br /><br />
+Reply to this mail on the slightest whim.
+<br /><br />
+Cheers,
+~Swizec
