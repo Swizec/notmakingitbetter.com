@@ -41,7 +41,7 @@ app.get('/', function(req, res){
     postcards.recent(function (err, cards) {
         res.render('index', {
             recent_cards: JSON.stringify(cards),
-            main_card: cards[Math.round(Math.random()*100)%(cards.length-1)],
+            main_card: cards[Math.round(Math.random()*100)%(cards.length-1)] || {},
             sent_card: JSON.stringify(''),
             head: 'Postcards are cool! <span>Send one ;)</span>',
             DEV: settings.dev
