@@ -42,14 +42,6 @@
             this.$(this.el).html(this.template.render(this.model.toJSON()));
             this.delegateEvents();
 
-            if (this.model.id) {
-                $(".notify_url").val("http://notmakingitbetter.com/ipn/"+this.model.id);
-                $(".item_num").val(this.model.id);
-                $(".return").val('http://notmakingitbetter.com/sent/'+this.model.id);
-                $("#buy").fadeIn();
-                $(".send").addClass("hidden");
-            }
-
             return this.el;
         },
 
@@ -83,6 +75,10 @@
         send: function (event) {
             event.preventDefault();
             this.model.save();
+
+            $(".notify_url").val("http://notmakingitbetter.com/ipn/"+this.model.id);
+            $(".item_num").val(this.model.id);
+            $(".return").val('http://notmakingitbetter.com/sent/'+this.model.id);
 
             mpq.track("Buy", {}, function () {
                 $("#magic-button-form").submit();
