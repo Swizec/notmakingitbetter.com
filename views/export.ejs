@@ -4,40 +4,53 @@
         <link href='http://fonts.googleapis.com/css?family=Podkova|Amaranth|Lobster+Two' rel='stylesheet' type='text/css'>
 
 <style>
-body { margin: 0; font-size: 13px; line-height: 1.231; }
+body { margin: 0; font-size: 13px; line-height: 1.231; padding: 0; }
 body {
      font-family: Amaranth sans-serif;
 }
 
 ul {
    list-style: none;
+   display: -moz-box;
+   display: -webkit-box;
+
+   -moz-box-orient: vertical;
+   -webkit-box-orient: vertical;
+   margin: 0;
+   padding: 0;
 }
 
 ul li {
-   width: 150mm;
-   height: 100mm;
+
+   width: 5.91in;
+   height: 3.94in;
 
    display: -webkit-box;
+   display: -moz-box;
 
    -webkit-box-pack: center;
    -webkit-box-align: center;
+
+   -moz-box-pack: center;
+   -moz-box-align: center;
 }
 
 ul li.back {
-   background: url('/images/postcard_form.gif') top left no-repeat;
    font-size: 1.2em;
 }
 
-ul li img {
+ul li img.pic {
    max-height: 90mm;
    max-width: 140mm;
 }
 
 ul li p {
-    font-family: "Podkova" serif;
+    font-family: "Podkova" serif !important;
     font-size: 1.2em;
     width: 75mm;
     box-sizing: border-box;
+    position: relative;
+    left: -150mm;
 }
 
 ul li p.text {
@@ -60,9 +73,11 @@ ul li p.address {
   <ul>
   <% for (i in cards) { %>
      <li>
-        <img src="<%= cards[i].image %>" />
+     <%= cards[i]._id %>
+        <div><img class="pic" src="<%= cards[i].image %>" /></div>
      </li>
      <li class="back">
+        <img src="/images/postcard_form.gif" />
         <p class="text"><%- cards[i].text.replace(/\n/g, "<br>") %></p>
         <p class="address"><%- cards[i].address.replace(/\n/g, "<br>") %></p>
      </li>
