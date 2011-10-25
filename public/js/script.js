@@ -24,7 +24,7 @@
             "change textarea": "update_data",
             "submit": "update_data",
             "click a.flip": "flip",
-            "click .send": "send",
+            "click .magic-button": "send",
             "focus .image_form input[type=text]": "focus",
             "blur .image_form input[type=text]": "blur",
             "keyup textarea": "limit",
@@ -47,7 +47,6 @@
                 $(".item_num").val(this.model.id);
                 $(".return").val('http://notmakingitbetter.com/sent/'+this.model.id);
                 $("#buy").fadeIn();
-                $("#magic-button").addClass("visible");
                 $(".send").addClass("hidden");
             }
 
@@ -75,19 +74,19 @@
 
         flip: function (event) {
             event.preventDefault();
-            this.$(this.el).toggleClass('flip');
-            if (!this.$(this.el).hasClass('flip')) {
-                $("#magic-button").removeClass('visible');
-                $(".send").removeClass("hidden");
-            }
+            var $el = this.$(this.el);
+            $el.toggleClass('flip');
+
             mpq.track("Flipped");
         },
 
-        send: function () {
+        send: function (event) {
+            event.preventDefault();
             this.model.save();
-            this.$(".send").addClass("hidden");
-            this.render();
-            mpq.track("Send");
+
+            mpq.track("Buy", {}, function () {
+                $("#magic-button-form").submit();
+            });
         },
 
         focus: function () {
@@ -154,7 +153,7 @@
             if (typeof(sent_card) != "object") {
                 var _card = new Card(main_card);
                 card = new Card({
-                    image: (_card) ? _card.get('image') : '',
+                    image: (_card) ? _card.get('image') : 'http://i.imgur.com/24uzu.jpg',
                     text: "",
                     address: ""
                 });
@@ -166,6 +165,7 @@
                 });
             }
             var card_form = new CardFormView({model: card});
+
             card_form.render();
         },
 
@@ -183,12 +183,5 @@
     });
 
     var App = window.App = new AppView;
-
-    $("#magic-button").submit(function () {
-        mpq.track("Buy", {}, function () {
-            $("#magic-button").unbind('submit').submit();
-        });
-        return false;
-    });
 
 })(jQuery);

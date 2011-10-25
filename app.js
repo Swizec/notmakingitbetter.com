@@ -41,7 +41,7 @@ app.get('/', function(req, res){
     postcards.recent(function (err, cards) {
         res.render('index', {
             recent_cards: JSON.stringify(cards),
-            main_card: cards[Math.round(Math.random()*100)%(cards.length-1)],
+            main_card: cards[Math.round(Math.random()*100)%(cards.length-1)] || {image: ''},
             sent_card: JSON.stringify(''),
             head: 'Postcards are cool! <span>Send one ;)</span>',
             DEV: settings.dev
@@ -110,6 +110,15 @@ app.get('/curation', function (req, res) {
 app.get('/for_curation', function (req, res) {
     postcards.for_curation(function (err, cards) {
         res.send(cards);
+    });
+});
+
+app.get('/export', function (req, res) {
+    payments.paid_cards(function (cards) {
+        res.render('export', {
+            cards: cards,
+            layout: false
+        });
     });
 });
 
