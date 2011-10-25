@@ -1,7 +1,7 @@
 
 Hello {{name}},
 <br /><br />
-you just sent a cool postcard! Hopefully ti will make somebody a very
+you just sent a cool postcard! Hopefully it will make somebody a very
 happy camper.
 <br /><br />
 You can still check it out here: http://postme.me/sent/{{postcard}}

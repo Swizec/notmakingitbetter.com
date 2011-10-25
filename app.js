@@ -50,13 +50,14 @@ app.get('/', function(req, res){
 });
 
 app.post('/card', function (req, res) {
-    postcards.create(req.body, function (err,id) {
-        res.send({id: id});
+    postcards.create(req.body, function (err, id, created) {
+        res.send({id: id,
+                  created: created});
     });
 });
 
 app.put('/card/:id', function (req, res) {
-    postcards.update(req.params.id, req.body, function (err) {
+    postcards.update(req.params.id, req.body, function (err, data) {
         res.send({});
     });
 });
