@@ -123,6 +123,17 @@ app.get('/export', function (req, res) {
     });
 });
 
+app.get('/shipped', function (req, res) {
+    payments.unshipped(function (data) {
+        data.map(function (payment) {
+            notifications.email('shipped',
+                                payment);
+        });
+        payments.shipped(data);
+        res.send(data);
+    });
+});
+
 // Only listen on $ node app.js
 
 if (!module.parent) {
