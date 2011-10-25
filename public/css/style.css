@@ -544,7 +544,7 @@ footer {
     left: 111mm;
     z-index: 1000;
 
-    opacity: 0;
+    opacity: 1;
     -webkit-transition: opacity 400ms ease-in-out;
     -moz-transition: opacity 400ms ease-in-out;
     -o-transition: opacity 400ms ease-in-out;
