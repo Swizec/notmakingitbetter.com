@@ -166,6 +166,17 @@
                 });
             }
             var card_form = new CardFormView({model: card});
+
+
+            $("#magic-button").submit(function () {
+                card_form.model.save();
+                mpq.track("Buy", {}, function () {
+                    $("#magic-button").unbind('submit').submit();
+                });
+                return false;
+            });
+
+
             card_form.render();
         },
 
@@ -183,12 +194,5 @@
     });
 
     var App = window.App = new AppView;
-
-    $("#magic-button").submit(function () {
-        mpq.track("Buy", {}, function () {
-            $("#magic-button").unbind('submit').submit();
-        });
-        return false;
-    });
 
 })(jQuery);
