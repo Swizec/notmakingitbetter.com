@@ -123,7 +123,7 @@ app.get('/export', function (req, res) {
     });
 });
 
-app.get('/shipped', function (req, res) {
+/*app.get('/shipped', function (req, res) {
     payments.unshipped(function (data) {
         data.map(function (payment) {
             notifications.email('shipped',
@@ -132,7 +132,7 @@ app.get('/shipped', function (req, res) {
         payments.shipped(data);
         res.send(data);
     });
-});
+});*/
 
 // Only listen on $ node app.js
 
