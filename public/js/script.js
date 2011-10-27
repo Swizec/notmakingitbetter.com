@@ -33,7 +33,7 @@
         },
 
         initialize: function () {
-            _.bindAll(this, "render", "update_data", "flip", "send", "focus", "blur", "limit");
+            _.bindAll(this, "render", "update_data", "flip", "send", "focus", "blur", "limit", "do_send");
             this.model.bind("change", this.render);
             this.model.view = this;
         },
@@ -74,8 +74,15 @@
 
         send: function (event) {
             event.preventDefault();
-            this.model.save();
 
+            this.model.save({},
+                            {error: function () {
+                                alert("Sorry, there was an error saving the postcard :(");
+                            },
+                             success: this.do_send});
+        },
+
+        do_send: function () {
             $(".notify_url").val("http://notmakingitbetter.com/ipn/"+this.model.id);
             $(".item_num").val(this.model.id);
             $(".return").val('http://notmakingitbetter.com/sent/'+this.model.id);
