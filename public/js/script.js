@@ -29,11 +29,13 @@
             "blur .image_form input[type=text]": "blur",
             "keyup textarea": "limit",
             "paste textarea": "limit",
-            "blur textarea": "limit"
+            "blur textarea": "limit",
+            "focus textarea#text": "change_step",
+            "focus textarea#address": "change_step"
         },
 
         initialize: function () {
-            _.bindAll(this, "render", "update_data", "flip", "send", "focus", "blur", "limit", "do_send");
+            _.bindAll(this, "render", "update_data", "flip", "send", "focus", "blur", "limit", "do_send", "change_step");
             this.model.bind("change", this.render);
             this.model.view = this;
         },
@@ -111,6 +113,12 @@
                 lines.pop();
                 $area.val(lines.join("\n"));
             }
+        },
+
+        change_step: function (event) {
+            $("section#card li").removeClass("step");
+            var step = $(event.currentTarget).attr("id");
+            $("section#card li[step="+step+"]").addClass("step");
         }
     });
 
