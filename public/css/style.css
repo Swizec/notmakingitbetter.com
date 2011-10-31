@@ -559,21 +559,21 @@ section#card {
 }
 
 #card-form {
-   margin-left: 200px;
+   margin-left: 300px;
 }
 
 section#card ol {
-    width: 200px;
+    width: 300px;
 }
 
 section#card ol li {
     font-size: 1.5em;
     line-height: 2em;
 
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 200ms ease-in-out 300ms;
+    -moz-transition: all 200ms ease-in-out 300ms;
+    -o-transition: all 200ms ease-in-out 300ms;
+    transition: all 200ms ease-in-out 300ms;
 }
 
 section#card ol li.step {
