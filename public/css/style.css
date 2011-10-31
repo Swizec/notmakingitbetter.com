@@ -535,18 +535,55 @@ footer {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 
-    margin-left: 57mm;
+    margin-left: 54mm;
     margin-top: 2mm;
     font-size: 1em;
-    width: 16mm;
+    width: 20mm;
+    text-align: center;
 }
 
 section {
-  display: block;
+    display: block;
 }
 
 section#card {
-  max-height: 100mm !important;
+    width: 100%;
+    max-height: 100mm !important;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+}
+
+#card-form {
+   margin-left: 300px;
+}
+
+section#card ol {
+    width: 300px;
+}
+
+section#card ol li {
+    font-size: 1.5em;
+    line-height: 2em;
+
+    -webkit-transition: all 200ms ease-in-out 300ms;
+    -moz-transition: all 200ms ease-in-out 300ms;
+    -o-transition: all 200ms ease-in-out 300ms;
+    transition: all 200ms ease-in-out 300ms;
+}
+
+section#card ol li.step {
+    font-size: 2em;
+}
+
+section#card ol li.explain {
+    list-style: none;
+    line-height: 1.2em;
 }
 
 #sharing-is-caring {

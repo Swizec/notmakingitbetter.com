@@ -19,6 +19,8 @@
         el: 'form',
         template: new EJS({url: '/client-views/form.ejs'}),
 
+        step: 'image',
+
         events: {
             "change input": "update_data",
             "change textarea": "update_data",
@@ -29,13 +31,17 @@
             "blur .image_form input[type=text]": "blur",
             "keyup textarea": "limit",
             "paste textarea": "limit",
-            "blur textarea": "limit"
+            "blur textarea": "limit",
+            "focus textarea#text": "change_step",
+            "focus textarea#address": "change_step"
         },
 
         initialize: function () {
-            _.bindAll(this, "render", "update_data", "flip", "send", "focus", "blur", "limit", "do_send");
+            _.bindAll(this, "render", "update_data", "flip", "send", "focus", "blur", "limit", "do_send", "change_step");
             this.model.bind("change", this.render);
             this.model.view = this;
+
+            this.change_step();
         },
 
         render: function () {
@@ -69,6 +75,9 @@
             var $el = this.$(this.el);
             $el.toggleClass('flip');
 
+            this.step = "text";
+            this.change_step();
+
             mpq.track("Flipped");
         },
 
@@ -94,6 +103,7 @@
 
         focus: function () {
             this.$(".image_form").addClass('focus');
+            this.step = "image";
         },
 
         blur: function () {
@@ -110,7 +120,20 @@
             }else if ($area.attr("id") == "address" && lines.length > 5) {
                 lines.pop();
                 $area.val(lines.join("\n"));
+
             }
+            if ($area.attr("id") == "address" && lines.length > 2) {
+                this.step = "send";
+                this.change_step();
+            }
+        },
+
+        change_step: function (event) {
+            $("section#card li").removeClass("step");
+            if (event) {
+                this.step = $(event.currentTarget).attr("id");
+            }
+            $("section#card li[step="+this.step+"]").addClass("step");
         }
     });
 

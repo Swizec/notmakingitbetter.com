@@ -134,6 +134,14 @@ app.get('/export', function (req, res) {
     });
 });*/
 
+app.get('/vote', function (req, res) {
+    postcards.for_voting(function (cards) {
+        res.render('voting', {
+
+        });
+    });
+});
+
 // Only listen on $ node app.js
 
 if (!module.parent) {
