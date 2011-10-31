@@ -535,10 +535,11 @@ footer {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 
-    margin-left: 57mm;
+    margin-left: 54mm;
     margin-top: 2mm;
     font-size: 1em;
-    width: 16mm;
+    width: 20mm;
+    text-align: center;
 }
 
 section {
