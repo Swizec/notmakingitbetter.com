@@ -580,6 +580,11 @@ section#card ol li.step {
     font-size: 2em;
 }
 
+section#card ol li.explain {
+    list-style: none;
+    line-height: 1.2em;
+}
+
 #sharing-is-caring {
     display: -webkit-box;
     display: -moz-box;
